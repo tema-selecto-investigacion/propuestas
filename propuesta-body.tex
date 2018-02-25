@@ -89,6 +89,23 @@ De momento no existen enfoques para modelado del rendimiento de microservicios
 \newpage
 \section{An industrial case study of performance and cost design space exploration\cite{case-study-1}}
 
+Determinar la compensación(\emph{trade-off}) entre rendimiento y costo de un sistema de software distribuido es importante ya que permite cumplir los requerimientos de rendimiento de una forma rentable. La gran cantidad de alternativas de diseño para tales sistemas usualmente llevan a los arquitectos de software a seleccionar soluciones subóptimas, las cuales puede desperdiciar recursos o no hacerle frente a las cargas de trabajo futuras. 
+
+La mayor contribución de este artículo es un caso de estudio que presenta la aplicación de varias herramientas y métodos académicos para la exploración de diseños en un ambiente industrial. El caso de estudio presenta cómo se exploran lo cambios en replicación, reasignación(\emph{reallocation} y hardware y su implicación en costo y rendimiento. 
+\paragraph{Sistema en estudio} Una solución de diagnóstico remoto (RDS por sus siglas en inglés) de la compañía ABB. El sistema RDS tiene más de 150000 líneas de código y es usado para actividades de servicio en miles de dispositivos industriales, fallas y otros datos. ABB desea mejorar el rendimiento de RDS con una nueva arquitectura porque su \emph{back-end} está operando en sus límites de rendimiento y escalabilidad. Las mejoras de corto plazo en el rendimiento y hardware no resolverán de forma sostenible los problemas a largo plazo. La métrica de mayor interés para los \emph{stakeholders} del sistema es el rendimiento de carga(\emph{upload}) del dispositivo, por ejemplo, el número de cargas que el sistema pueda manejar por segundo. Se decidió que el sistema en promedio no deben utilizar más del 50\% de recursos para hacerle frente a las cargas de trabajo pico.
+
+\paragraph{Actividades} 3 principales actividades se llevaron a cabo: medición del rendimiento, modelado del rendimiento y exploración de diseños candidatos.
+
+\subsection{Medición del rendimiento}
+Mediciones son necesarias para crear un modelo de rendimiento preciso. Para medir el rendimiento de RDS de forma precisa, varios paso fueron realizados: primero se seleccionaron las herramientas para la medición, luego se creó un modelo de la carga de trabajo del sistema. Finalmente, se realizaron las mediciones.
+
+\subsection{Modelado del rendimiento}
+Para construir el modelo del rendimiento de RDS, primero se seleccionó una notación de modelaje apropiada que resultó ser el \emph{Palladio Component Model}. Basado en los resultados de las mediciones, el modelo de la carga de trabajo y análisis adicionales, se construyó un modelo de Palladio para el RDS, el cual se calibro4 hasta que reflejará el rendimiento del sistema en estudio.
+
+\subsection{Exploración de diseños candidatos}
+Basado en la modelo del rendimiento creado, se buscó la arquitectura más eficiente en costo para hacerle frente a la carga de trabajo incremental. Se consideraron 3 escenarios y para cada uno de ellos se determinó la arquitectura adecuada que cumpliera con el objetivo de rendimiento. Se ejecutaron varias predicciones manuales para calibrar el modelo. Debido a la gran cantidad de soluciones, se aplicó un herramienta de exploración de diseños candidatos llamada \emph{PerOpteryx}. Se ejecutaron varias predicciones y se creó un plan para aplicar las arquitecturas.
+
+
 \newpage
 \section{Sobre la propuesta}
 
