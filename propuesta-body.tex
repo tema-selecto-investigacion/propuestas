@@ -20,6 +20,35 @@ En el proceso de CBSE(figura \ref{fig:palladio-cbse}) los autores distinguen cua
 
 \newpage
 \section{Performance-oriented DevOps: a research agenda\cite{performance-devops}}
+DevOps es una tendencia hacia una estrecha integración entre equipos desarrollo y operaciones. La necesidad de tal integración es orientada por el requerimiento de adaptar aplicacione empresariales continuamente a los cambios del ambiente del negocio. El rendimiento describe las propiedades del sistema con respecto a su ejecución y uso de recursos. Métricas comunes son tiempo de respuesta, \emph{throughput} y la utilización de los recursos. Los objetivos de rendimiento para aplicaciones empresariales son típicamente definidos al establecer cotas superiores/inferiores para estas métricas y transacciones de negocio específicas.
+
+\subsection{Actividades de administración del rendimiento}
+\subsubsection{Evaluación del rendimiento basado en modelos}
+\begin{itemize}
+    \item La representación de la memoria principal y del recolector de basura aún no están explícitamente integrados ni considerados en los modelos de rendimiento
+    \item La selección de técnicas apropiadas de solución requiere de mucha experiencia
+\end{itemize}
+
+\subsubsection{Extracción de modelos de rendimiento y de cargas de trabajo}
+\begin{itemize}
+    \item La precisión de los modelos puede llegar a expirar si no son actualizados cuando hay cambios. Mecanismos de detección son requeridos para aprender cuando los modelos son antiguos y hay que actualizarlos.
+    \item La extracción de capacidades de rendimiento se basa en una combinación de software y los recursos de hardware en los que se implementa. Este enfoque combinado es compatible con la precisión de la predicción, pero está menos calificado con respecto a la portabilidad de los conocimientos a otras plataformas. Una dirección de investigación futura podría ser extraer modelos separados (por ejemplo, \emph{middleware} y modelos de aplicación separados). 
+\end{itemize}
+
+
+
+\subsection{Ingeniería de rendimiento de software durante el desarrollo}
+
+\subsubsection{Modelos de rendimiento durante etapas diseño }
+\begin{itemize}
+    \item Los retos de utilizar modelos de rendimiento en etapas tempranas de desarrollo es que usualmente es difícil validar la precisión de los modelos hasta que un sistema en ejecución exista. Las predicciones de rendimiento basadas en suposiciones, entrevistas y pruebas previas pueden ser también imprecisas y por tanto las decisiones que se hagan a partir de estas predicciones.
+\end{itemize}
+
+
+\paragraph{Sobre este reporte}
+
+
+
 
 
 \newpage
