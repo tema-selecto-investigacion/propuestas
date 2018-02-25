@@ -24,6 +24,37 @@ En el proceso de CBSE(figura \ref{fig:palladio-cbse}) los autores distinguen cua
 
 \newpage
 \section{Performance Engineering for Microservices: Research Challenges and Directions\cite{microservices-challenges}}
+Los microservicios complementan enfoques como DevOps y entrega continua(CD por sus siglas en inglés) en relación en términos de arquitectura de software. Junto con este estilo de arquitectura, otras tecnologías importantes para \emph{deployment} como, virtualización basada en contenedores y soluciones de orquestación de contenedores han emergido. Estas tecnologías permiten explotar plataformas en la nube, proporcionando altos niveles de escalabilidad, disponibilidad y portabilidad para microservicios. A pesar del hecho de que es una necesidad inherente contar con escalabilidad y elasticidad, la ingeniería de rendimiento para microservicios hasta ahora ha tenido poca atención por parte de las comunidades tanto de microservicios como de comunidades de investigación de ingeniería de rendimiento. Un gran cuepro de conocimiento y buenas prácticas para ingeniería de rendimiento para desarrollo tradicional de software y arquitecturas está disponible. Sin embargo, sus aplicaciones en DevOps imponen tanto retos como oportunidades.
+
+\subsection{Retos de investigación}
+
+\subsubsection{Pruebas de rendimiento}
+\begin{itemize}
+    \item Reemplazar y compensar pruebas extensivas de integración y de sistema por un control detallado de los entornos de producción
+    \item Alinear las pruebas de rendimiento y pruebas de regresión de rendimiento con prácticas de CD, por ejemplo, acelerar las estas de pruebas correspondientes.
+    \item Selección dinámica y semi automática de pruebas de rendimiento
+\end{itemize}
+
+\subsubsection{Monitoreo}
+\begin{itemize}
+    \item Instrumentación para monitoreo distribuido arquitecturas microservicios políglotas 
+    \item Métricas adicionales para monitorear microservicios
+    \item Técnicas de detección precisa de anomalías en arquitecturas de microservicios
+\end{itemize}
+
+
+\subsubsection{Modelado del rendimiento}
+De momento no existen enfoques para modelado del rendimiento de microservicios 
+\begin{itemize}
+    \item Adoptar modelos de rendimiento para casos de uso como planeamiento de capacidad, confiabilidad y resiliencia
+    \item Buscar abstracciones de modelado apropiadas 
+    \item Extracción automática de modelos de rendimiento
+    \item Aprender del comportamiento de la infraestructura e integrarlo en los modelos de rendimiento
+\end{itemize}
+
+
+
+
 
 
 \newpage
