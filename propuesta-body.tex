@@ -1,6 +1,66 @@
 \tableofcontents
 
 \newpage
+\section{Performance evaluation of component-based software systems: A survey\cite{performance-model-survey}}
+
+Durante los últimos diez años, los investigadores han propuesto muchos enfoques para evaluar el rendimiento (tiempos de respuesta, \emph{throughput}, utlización de recursos) de sistemas de software basados en componentes. Estos enfoques lidian con predicción de rendimiento y medición del rendimiento. Los primeros analizan el rendimiento esperado de un diseño de software basado en componentes para evitar problemas de rendimiento en la implementación del sistema, lo que podría llevar a costos substanciales para rediseñas la arquitectura. Los otrosanalizan el rendimiento observable de sistemas de software basados en componentes implementados para entender sus propiedades, determinar su capacidad máxima, identificar componentes críticos y para remover cuellos de botella.
+
+\paragraph{\textbf{Métodos de evaluación de rendimiento}}
+Se agruparon los enfoques en dos grandes grupos: enfoques principales que proporcionan procesos de evaluación de rendimiento completo y enfoques suplementarios que se centran en aspectos específicos como medición de componentes individuales o modelaje de las propiedades de rendimiento de los conectores de un componente.
+
+\paragraph{Enfoques principales} 
+\begin{itemize}
+    \item Enfoques de predicción basados en UML:
+    \begin{itemize}
+        \item CB-SPE - \emph {The Component-Based Software Performance Engineering}
+    \end{itemize}
+    \item Enfoques de predicción basados en meta-modelos propietarios
+    \begin{itemize}
+        \item CBML - \emph{The Component-Based Modelling Language}
+        \item PECT - \emph{The Prediction Enabled Component Technology}
+        \item COMQUAD - \emph{Components with Quantitative properties and Adaptivity}
+        \item KLAPPER
+        \item ROBOCOP
+        \item PALLADIO 
+    \end{itemize}
+    \item Enfoques de predicción centrados en \emph{middleware}
+    \begin{itemize}
+        \item NICTA
+    \end{itemize}
+    \item Enfoques basados en especificaciones formales
+    \begin{itemize}
+        \item RESOLVE
+        \item HAMLET
+    \end{itemize}
+    \item Enfoques de monitoreo para sistemas implementados
+    \begin{itemize}
+        \item COMPAS
+        \item TESTEJB
+        \item AQUA
+        \item PAD
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Enfoques Suplementarios}
+\begin{itemize}
+    \item Enfoques de monitoreo para componentes implementados
+    \begin{itemize}
+        \item RelCAM
+        \item COMAERA
+        \item BYCOUNTER
+    \end{itemize}
+    \item{Enfoques de predicción para conectores de componentes}
+    \begin{itemize}
+        \item Verdickt
+        \item Grassi
+        \item Becker
+        \item Happe
+    \end{itemize}
+\end{itemize}
+ 
+
+
+\newpage
 \section{The Palladio component model for model-driven performance prediction\cite{palladio-seminal}}
 
 El el desarrollo de software basado en componentes (CBSE, por sus siglas en inglés) la idea central es construir sistemas de software complejo uniendo componentes básicos. El objetivo inical de CBSE fue incremetar el nivel de reutilización. Sin embargo, estructuras compuestas también pueden aumentar el nivel de predictibilidad del sistema durante etapas tempranas de desarrollo, esto porque modelos certificados de componentes individuales puee ser compuestos, permitiendo a los arquitectos de software razonar sobre la estructura compuesta. Esto es importante para las propiedades funcionales, pero también para las propiedades extra funcionales como rendimiento y confiabilidad. 
@@ -117,9 +177,11 @@ Basado en la modelo del rendimiento creado, se buscó la arquitectura más efici
 
 
 
-
+\newpage
 \bibliographystyle{ACM-Reference-Format}
 \begin{thebibliography}{9}
+
+\bibitem{performance-model-survey} Heiko Koziolek. 2010. \emph{Performance evaluation of component-based software systems: A survey. Perform}. Eval. 67, 8 (August 2010), 634-658. DOI: \url{http://ezproxy.itcr.ac.cr:2075/10.1016/j.peva.2009.07.007} 
 
 \bibitem{palladio-seminal} Stephen Becker, Heiko Koziolek and Ralf Reussner. \emph{The Palladio component model for model-driven prediction}. Journal of Systems and Software 82:3-22. Elsevier Science Inc. 2009. DOI: \url{http://dx.doi.org/10.1016/j.jss.2008.03.066}
 
