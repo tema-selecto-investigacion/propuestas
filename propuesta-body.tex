@@ -3,10 +3,10 @@
 \newpage
 \section{Performance evaluation of component-based software systems: A survey\cite{performance-model-survey}}
 
-Durante los últimos diez años, los investigadores han propuesto muchos enfoques para evaluar el rendimiento (tiempos de respuesta, \emph{throughput}, utlización de recursos) de sistemas de software basados en componentes. Estos enfoques lidian con predicción de rendimiento y medición del rendimiento. Los primeros analizan el rendimiento esperado de un diseño de software basado en componentes para evitar problemas de rendimiento en la implementación del sistema, lo que podría llevar a costos substanciales para rediseñas la arquitectura. Los otrosanalizan el rendimiento observable de sistemas de software basados en componentes implementados para entender sus propiedades, determinar su capacidad máxima, identificar componentes críticos y para remover cuellos de botella.
+Durante los últimos diez años, los investigadores han propuesto muchos enfoques para evaluar el rendimiento (tiempos de respuesta, \emph{throughput}, utlización de recursos) de sistemas de software basados en componentes. Estos enfoques lidian con predicción de rendimiento y medición del rendimiento. Los primeros analizan el rendimiento esperado de un diseño de software basado en componentes para evitar problemas de rendimiento en la implementación del sistema, lo que podría llevar a costos substanciales para rediseñar la arquitectura. Los otros analizan el rendimiento observable de sistemas de software basados en componentes implementados para entender sus propiedades, determinar su capacidad máxima, identificar componentes críticos y para remover cuellos de botella.
 
 \paragraph{\textbf{Métodos de evaluación de rendimiento}}
-Se agruparon los enfoques en dos grandes grupos: enfoques principales que proporcionan procesos de evaluación de rendimiento completo y enfoques suplementarios que se centran en aspectos específicos como medición de componentes individuales o modelaje de las propiedades de rendimiento de los conectores de un componente.
+Los enfoques se agruparon en dos grandes grupos: enfoques principales que proporcionan procesos de evaluación de rendimiento completo y enfoques suplementarios que se centran en aspectos específicos como medición de componentes individuales o modelaje de las propiedades de rendimiento de los conectores de un componente.
 
 \paragraph{Enfoques principales} 
 \begin{itemize}
@@ -63,7 +63,7 @@ Se agruparon los enfoques en dos grandes grupos: enfoques principales que propor
 \newpage
 \section{The Palladio component model for model-driven performance prediction\cite{palladio-seminal}}
 
-El el desarrollo de software basado en componentes (CBSE, por sus siglas en inglés) la idea central es construir sistemas de software complejo uniendo componentes básicos. El objetivo inical de CBSE fue incremetar el nivel de reutilización. Sin embargo, estructuras compuestas también pueden aumentar el nivel de predictibilidad del sistema durante etapas tempranas de desarrollo, esto porque modelos certificados de componentes individuales puee ser compuestos, permitiendo a los arquitectos de software razonar sobre la estructura compuesta. Esto es importante para las propiedades funcionales, pero también para las propiedades extra funcionales como rendimiento y confiabilidad. 
+El el desarrollo de software basado en componentes (CBSE, por sus siglas en inglés) la idea central es construir sistemas de software complejo uniendo componentes básicos. El objetivo inicial de CBSE fue incremetar el nivel de reutilización. Sin embargo, estructuras compuestas también pueden aumentar el nivel de predictibilidad del sistema durante etapas tempranas de desarrollo, esto porque modelos certificados de componentes individuales pueden ser compuestos, permitiendo a los arquitectos de software razonar sobre la estructura compuesta. Esto es importante para las propiedades funcionales, pero también para las propiedades extra funcionales como rendimiento y confiabilidad. 
 
 Los métodos para predicción de rendimiento y confiabilidad de sistemas de software en general son limitados y raramente usados en la industria. Este reto es aún mayor en CBSE debido a que varios roles independientes están involucrados en la creación del sistema. Muchos métodos existentes para predicción de CBSE requieren que los arquitectos de software modelen el sistema basados en especificaciones de un solo componente. Luego se asume que el arquitecto proporcionará información faltante. Otros enfoques dejan de lado factores que afectan el rendimiento percibido de un componente de software tal y como la influencia de servicios externos, cambio de recursos de su ambiente o diferentes parámetros de entrada. Sin embargo, para predicciones precisas, todas estas dependencias tiene que hacerse explícitas en la especificación del componente.
 
@@ -80,7 +80,7 @@ En el proceso de CBSE(figura \ref{fig:palladio-cbse}) los autores distinguen cua
 
 \newpage
 \section{Performance-oriented DevOps: a research agenda\cite{performance-devops}}
-DevOps es una tendencia hacia una estrecha integración entre equipos desarrollo y operaciones. La necesidad de tal integración es orientada por el requerimiento de adaptar aplicacione empresariales continuamente a los cambios del ambiente del negocio. El rendimiento describe las propiedades del sistema con respecto a su ejecución y uso de recursos. Métricas comunes son tiempo de respuesta, \emph{throughput} y la utilización de los recursos. Los objetivos de rendimiento para aplicaciones empresariales son típicamente definidos al establecer cotas superiores/inferiores para estas métricas y transacciones de negocio específicas.
+DevOps es una tendencia hacia una estrecha integración entre equipos desarrollo y operaciones. La necesidad de tal integración es orientada por el requerimiento de adaptar aplicaciones empresariales a los cambios del ambiente del negocio continuamente. El rendimiento describe las propiedades del sistema con respecto a su ejecución y uso de recursos. Métricas comunes son tiempo de respuesta, \emph{throughput} y la utilización de los recursos. Los objetivos de rendimiento para aplicaciones empresariales son típicamente definidos al establecer cotas superiores/inferiores para estas métricas y transacciones de negocio específicas.
 
 \subsection{Actividades de administración del rendimiento}
 \subsubsection{Evaluación del rendimiento basado en modelos}
@@ -105,7 +105,7 @@ DevOps es una tendencia hacia una estrecha integración entre equipos desarrollo
 \end{itemize}
 
 
-\paragraph{Sobre este reporte}
+\paragraph{Sobre este reporte} Este es un reporte extenso que da a conocer retos y oportunidades en investigación sobre DevOps y rendimiento. En este resumen se incluyeron varios de los puntos más relevantes concernientes a modelaje del rendimiento. 
 
 
 
@@ -120,7 +120,7 @@ Los microservicios complementan enfoques como DevOps y entrega continua(CD por s
 \subsubsection{Pruebas de rendimiento}
 \begin{itemize}
     \item Reemplazar y compensar pruebas extensivas de integración y de sistema por un control detallado de los entornos de producción
-    \item Alinear las pruebas de rendimiento y pruebas de regresión de rendimiento con prácticas de CD, por ejemplo, acelerar las estas de pruebas correspondientes.
+    \item Alinear las pruebas de rendimiento y pruebas de regresión de rendimiento con prácticas de entrega continua, por ejemplo, acelerar las estas de pruebas correspondientes.
     \item Selección dinámica y semi automática de pruebas de rendimiento
 \end{itemize}
 
@@ -152,7 +152,7 @@ De momento no existen enfoques para modelado del rendimiento de microservicios
 Determinar la compensación(\emph{trade-off}) entre rendimiento y costo de un sistema de software distribuido es importante ya que permite cumplir los requerimientos de rendimiento de una forma rentable. La gran cantidad de alternativas de diseño para tales sistemas usualmente llevan a los arquitectos de software a seleccionar soluciones subóptimas, las cuales puede desperdiciar recursos o no hacerle frente a las cargas de trabajo futuras. 
 
 La mayor contribución de este artículo es un caso de estudio que presenta la aplicación de varias herramientas y métodos académicos para la exploración de diseños en un ambiente industrial. El caso de estudio presenta cómo se exploran lo cambios en replicación, reasignación(\emph{reallocation} y hardware y su implicación en costo y rendimiento. 
-\paragraph{Sistema en estudio} Una solución de diagnóstico remoto (RDS por sus siglas en inglés) de la compañía ABB. El sistema RDS tiene más de 150000 líneas de código y es usado para actividades de servicio en miles de dispositivos industriales, fallas y otros datos. ABB desea mejorar el rendimiento de RDS con una nueva arquitectura porque su \emph{back-end} está operando en sus límites de rendimiento y escalabilidad. Las mejoras de corto plazo en el rendimiento y hardware no resolverán de forma sostenible los problemas a largo plazo. La métrica de mayor interés para los \emph{stakeholders} del sistema es el rendimiento de carga(\emph{upload}) del dispositivo, por ejemplo, el número de cargas que el sistema pueda manejar por segundo. Se decidió que el sistema en promedio no deben utilizar más del 50\% de recursos para hacerle frente a las cargas de trabajo pico.
+\paragraph{Sistema en estudio} Una solución de diagnóstico remoto (RDS por sus siglas en inglés) de la compañía ABB. El sistema RDS tiene más de 150000 líneas de código y es usado para actividades de servicio en miles de dispositivos industriales, fallas y otros datos. ABB desea mejorar el rendimiento de RDS con una nueva arquitectura porque su \emph{back-end} está operando en sus límites de rendimiento y escalabilidad. Las mejoras de corto plazo en el rendimiento y hardware no resolverán de forma sostenible los problemas a largo plazo. La métrica de mayor interés para los \emph{stakeholders} del sistema es el rendimiento de carga(\emph{upload}) del dispositivo, por ejemplo, el número de cargas que el sistema pueda manejar por segundo. Se decidió que el sistema en promedio no debe utilizar más del 50\% de recursos para hacerle frente a las cargas de trabajo pico.
 
 \paragraph{Actividades} 3 principales actividades se llevaron a cabo: medición del rendimiento, modelado del rendimiento y exploración de diseños candidatos.
 
@@ -160,7 +160,7 @@ La mayor contribución de este artículo es un caso de estudio que presenta la a
 Mediciones son necesarias para crear un modelo de rendimiento preciso. Para medir el rendimiento de RDS de forma precisa, varios paso fueron realizados: primero se seleccionaron las herramientas para la medición, luego se creó un modelo de la carga de trabajo del sistema. Finalmente, se realizaron las mediciones.
 
 \subsection{Modelado del rendimiento}
-Para construir el modelo del rendimiento de RDS, primero se seleccionó una notación de modelaje apropiada que resultó ser el \emph{Palladio Component Model}. Basado en los resultados de las mediciones, el modelo de la carga de trabajo y análisis adicionales, se construyó un modelo de Palladio para el RDS, el cual se calibro4 hasta que reflejará el rendimiento del sistema en estudio.
+Para construir el modelo del rendimiento de RDS, primero se seleccionó una notación de modelaje apropiada que resultó ser el \emph{Palladio Component Model}. Basado en los resultados de las mediciones, el modelo de la carga de trabajo y análisis adicionales, se construyó un modelo de Palladio para el RDS, el cual se calibró hasta que reflejará el rendimiento del sistema en estudio.
 
 \subsection{Exploración de diseños candidatos}
 Basado en la modelo del rendimiento creado, se buscó la arquitectura más eficiente en costo para hacerle frente a la carga de trabajo incremental. Se consideraron 3 escenarios y para cada uno de ellos se determinó la arquitectura adecuada que cumpliera con el objetivo de rendimiento. Se ejecutaron varias predicciones manuales para calibrar el modelo. Debido a la gran cantidad de soluciones, se aplicó un herramienta de exploración de diseños candidatos llamada \emph{PerOpteryx}. Se ejecutaron varias predicciones y se creó un plan para aplicar las arquitecturas.
@@ -168,12 +168,29 @@ Basado en la modelo del rendimiento creado, se buscó la arquitectura más efici
 
 \newpage
 \section{Sobre la propuesta}
+Los artículos incluidos se podrían llegar a dividir en dos grupos: los que destacan la investigación reciente y generalidades sobre modelaje de rendimiento en sistemas de software, haciendo énfasis en \emph{Palladio Component Model}, y los que dan a conocer retos y oportunidades alrededor de estos temas con respecto a tendencias de desarrollo de software actuales como lo es DevOps.
+
+Se incluye también un caso de estudio en el cual a través del uso de herramientas de modelaje de rendimiento, un sistema es analizado y de acuerdo con los resultados obtenidos se proponen arquitecturas optimizadas. Otros ejemplos de casos de uso relacionados con modelaje y predicciones del rendimiento se pueden encontrar en \cite{huber-et-al, rathfelder-et-al, media-store}.
+
+A partir de lo recolectado se pudo conocer que mucho del esfuerzo que se ha hecho en este campo de estudio ha tenido baja aceptación en la industria pero que, por otro lado, compañías y sistemas que han utilizado estos métodos de modelaje y evaluación han obtenido buenos resultados. Queda claro también que la aplicación de estos modelos permiten entender la influencia que tienen tanto de los diferentes componentes de software como el impacto que pudiera generar en ellos durante la ejecución de un sistema.
+
+También se pudo reconocer que existe necesidad en aplicar enfoques de modelado del rendimiento en el desarrollo de sistemas modernos. No existen enfoques de modelado de rendimiento para microservicios que hoy en día es un estilo de arquitectura de software sumamente popular. Es por esto que se considera que la realización de estudios exploratorios para determinar la influencia en el rendimiento que tienen diferentes componentes, librerías y productos de software sobre un sistema van a brindar nuevo conocimiento para dar a conocer factores que favoren o desfavorecen el uso de los mismos y, además de esto, podría representar un marco de referencia inicial por medio del cual se pueda evaluar la adopción de estas tecnologías \emph{a priori}. 
+
+Por último, durante la búsqueda de artículos se encontraron muy pocos de ellos provenientes de universidades de latinoamérica. Esto representa, a juicio del proponente, una oportunidad para estudiar, probar y generar conocimiento sobre estos temas.    
+
 
 \section{Objetivos}
 
 \subsection{Objetivo General}
+Diseñar un modelo de sistemas distribuidos de intercambio mensajes (\emph{message-oriented middleware}) para evaluar la influencia que tienen en el rendimiento de un sistema de software por medio de modelado y simulación basado en componentes.
 
 \subsection{Objetivos Específicos}
+\begin{enumerate}
+    \item Adaptar un sistema de software de referencia para el cual ya exista un modelo de rendimiento y simulaciones para que se integre y comunique con un sistema de mensajería.
+    \item Comparar la solución implementada bajo diferentes cargas de trabajo
+    \item Crear un modelo del nuevo sistema y su rendimiento 
+    \item Validar y analizar el modelo creado a través de experimentos
+\end{enumerate}
 
 
 
@@ -191,10 +208,17 @@ Basado en la modelo del rendimiento creado, se buscó la arquitectura más efici
 
 \bibitem{case-study-1} Thijmen de Gooijer, Anton Jansen, Heiko Koziolek, and Anne Koziolek. 2012. \emph{An industrial case study of performance and cost design space exploration}. In Proceedings of the 3rd ACM/SPEC International Conference on Performance Engineering (ICPE '12). ACM, New York, NY, USA, 205-216. DOI: \url{https://ezproxy.itcr.ac.cr:2878/10.1145/2188286.2188319}
 
+\bibitem{huber-et-al} Nikolaus Huber, Steffen Becker, Christoph Rathfelder, Jochen Schweflinghaus, and Ralf H. Reussner. 2010. \emph{Performance modeling in industry: a case study on storage virtualization}. In Proceedings of the 32nd ACM/IEEE International Conference on Software Engineering - Volume 2 (ICSE '10), Vol. 2. ACM, New York, NY, USA, 1-10. DOI: \url{http://ezproxy.itcr.ac.cr:2075/10.1145/1810295.1810297} 
+
+\bibitem{rathfelder-et-al} Christoph Rathfelder, Steffen Becker, Klaus Krogmann and Ralf Reussner. \emph{Workload-aware System Monitoring Using Performance Predictions Applied to a Large-scale E-Mail System}. 2012 Joint Working IEEE/IFIP Conference on Software Architecture and European Conference on Software Architecture, Helsinki, 2012, pp. 31-40.
+DOI: \href{https://ezproxy.itcr.ac.cr:2878/10.1109/WICSA-ECSA.212.11}{10.1109/WICSA-ECSA.212.11}. 
+
+\bibitem{media-store} Misha Strittmatter and Amine Kechaou. \emph{The media store 3 case study system}. Technical Report 2016,1, Faculty of Informatics, Karlsruhe Institute of Technology, 2016. URL: \url{http://digbib.ubka.uni-karlsruhe.de/volltexte/documents/3792054}
+
 \end{thebibliography}
 
-\appendix
-\section{}
+%\appendix
+%\section{}
 
 
 %\section{Introduction}

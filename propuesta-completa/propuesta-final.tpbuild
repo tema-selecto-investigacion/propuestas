@@ -1,0 +1,9 @@
+#!/bin/bash
+# Texpad build (.tpbuild) file for typesetting glossaries via makeglossaries
+
+echo =Typesetting glossaries=
+export openout_any=r
+echo $TEXTPAD_ROOTFILE
+pdflatex $TEXPAD_ROOTFILE
+makeglossaries $TEXPAD_ROOTFILE_NO_EXT
+pdflatex $TEXPAD_ROOTFILE
