@@ -19,6 +19,7 @@
 }
 
 \usepackage{graphicx}
+\usepackage{pdfpages}
 \graphicspath{ {imagenes/} }
 
 
@@ -159,7 +160,7 @@
         \vspace*{1cm}
         
         \Huge
-        \textbf{Modelado y Simulación de Sistemas Distribuidos de Intercambio de Mensajes (\emph{Message Oriented Middleware})}
+        \textbf{Modelado y Simulación de Colas de Mensajes Distribuidas (\emph{Message Oriented Middleware})}
         
         \vspace{1.5cm}
         
@@ -202,8 +203,8 @@
 %\listoffigures
 %\cleardoublepage
 %
-\listoftables
-\cleardoublepage
+%\listoftables
+%\cleardoublepage
 
 %%%%%%%%%%%%
 % Prefacio %
@@ -222,18 +223,15 @@
 \addcontentsline{toc}{chapter}{Introducción}
 Los métodos de predicción de rendimiento basados en modelos permiten a los arquitectos de software evaluar el rendimiento de los sistemas de software durante las primeras etapas de desarrollo. Estos modelos de predicción se centran en los aspectos relevantes de la arquitectura y de la lógica del negocio, dejando de lado detalles de la infraestructura subyacente. Sin embargo, estos detalles son esenciales para generar predicciones de rendimiento que sean precisas.
 
-Para los ingenieros, es una práctica común simular el modelo de un artefacto antes de construirlo. Modelos de diseños de autos, circuitos electrónicos, puentes, entre otros, son simulados para entender el impacto de decisiones de diseño en varias atributos de calidad de interés como seguridad, consumo de energía o estabilidad. La habilidad de predecir las propiedades de un artefacto en base a su diseño sin necesidad de construirlo, es una de las características centrales de una disciplina de ingeniería. A partir de esta visión de lo que se considera una disciplina de ingeniería establecida se podría decir entonces que la ingeniería de software es apenas una disciplina de ingeniería. Esto porque frecuentemente los ingenieros de software carecen del entendimiento del impacto de decisiones de diseño en atributos de calidad como rendimiento o confiabilidad. Como resultado, se intenta probar la calidad del software mediante costosos ciclos de prueba y error.
+Para los ingenieros, es una práctica común simular el modelo de un artefacto antes de construirlo. Modelos de diseños de autos, circuitos electrónicos, puentes, entre otros, son simulados para entender el impacto de decisiones de diseño en varias atributos de calidad de interés como seguridad, consumo de energía o estabilidad. La habilidad de predecir las propiedades de un artefacto en base a su diseño sin necesidad de construirlo, es una de las características centrales de una disciplina de ingeniería. A partir de esta visión de lo que se considera una disciplina de ingeniería establecida se podría decir entonces que la ingeniería de software es apenas una disciplina de ingeniería\cite{palladio-blue-book}. Esto porque frecuentemente los ingenieros de software carecen del entendimiento del impacto de decisiones de diseño en atributos de calidad como rendimiento o confiabilidad. Como resultado, se intenta probar la calidad del software mediante costosos ciclos de prueba y error.
 
-El no entender el impacto en las decisiones de diseño puede ser costoso y riesgoso. Probar software significa que ya se ha hecho un esfuerzo en su implementación. Por ejemplo: si las pruebas revelan problemas de rendimiento, es muy probable que la arquitectura necesita ser modificada, lo que puede conllevar a costos adicionales. Estos costos surgen debido a que en sistemas de software empresarial un bajo rendimiento es principalmente el efecto de una arquitectura inadecuada que efecto de código.
+El no entender el impacto en las decisiones de diseño puede ser costoso y riesgoso. Probar software significa que ya se ha hecho un esfuerzo en su implementación. Por ejemplo, si las pruebas revelan problemas de rendimiento, es muy probable que la arquitectura necesita ser modificada, lo que puede conllevar a costos adicionales. Estos costos surgen debido a que en sistemas de software empresarial un bajo rendimiento es principalmente el efecto de una arquitectura inadecuada que efecto de código.
 
-%En los sistemas de software que utilizan comunicación basada en mensajes, el rendimiento depende en gran medida del \emph{middleware} orientado a intercambio de mensajes (\emph{Message Oriented Middleware} - MOM). Los arquitectos de software necesitan considerar su configuración y uso para obtener predicciones significativas. Sin embargo, la inclusión de un MOM en un modelo de arquitectura de software requiere un esfuerzo adicional así también como de conocimiento detallado de la infraestructura utilizada. Los arquitectos de software podrían llegar a omitir su influencia y esto tendría como consecuencia la generación predicciones erróneas.
-%
-%Las aplicaciones que utilizan protocolos de mensajería proporcionados por un MOM realizan comunicación asíncrona y basada en colas. Estas aplicaciones deben también hacer frente a consideraciones de arquitectura adicionales como la topología de las conexiones de los componentes, la persistencia de los mensajes y el flujo de control. Todos estos factores pueden llegar a influenciar en gran media el rendimiento de las aplicaciones. 
+La ingeniería de rendimiento de software(SPE por sus siglas en inglés) es una disciplina que se centra en incorporar aspecto de rendimiento dentro del proceso de desarrollo de software, con el objetivo de entregar software de confiable de acuerdo con propiedades de rendimiento particulares. Los modelos de rendimiento predictivos son una de las herramientas empleadas en SPE. Construidos en las fases tempranas del proceso de desarrollo de software, los modelos ayudan a predecir el rendimiento eventual del software y de esta forma guiar el desarrollo, para eso los modelos de predicción de rendimiento deben capturar todos los componentes relevantes del sistema.
 
+Para aplicaciones de software moderans, esto puede implicar modelar complejas capas tales como máquinas virtuales o \emph{middleware} de mensajería. Componer todos estos modelos puede resultar una tarea costosa e ineficiente. En su lugar, un modelo abstracto de la aplicación se puede construir primero y luego ir agregando los modelos de los componentes del sistema. 
 
-
-\textbf{Contribución - TBD}
-
+En este trabajo se propone la construcción de un modelo de rendimiento para un sistema que utilice \emph{middleware} orientado a mensajes con el fin de evaluar la influencia en el rendimiento de dicho sistema. Se propone evaluar esta influencia por medio de un ejemplo: tomar una aplicación de referencia con el fin de obtener sus métricas actuales de rendimiento, adaptarla para que utilice \emph{middleware} orientado a mensajes y luego medir su rendimiento y generar un modelo a partir de esto. 
 
 
 \chapter{Definición del problema}
@@ -262,9 +260,9 @@ Con respecto a MOM, aunque se han publicado modelos de rendimiento sobre estos\c
 
 Junto con el crecimiento de Internet, los sistemas distribuidos han crecido a una escala masiva. Hoy en día, estos sistemas puede involucrar a miles de entidades distruidas globalmente. Esto ha motivado el estudio de modelos de comunicación y sistemas flexibles, que puedan reflejar la naturaleza dinámica y desacoplada de las aplicaciones.
 
-La integración de tecnologías heterogéneas es una de las áreas principales en donde la comunicación basada en mensajes juega un papel clave. Más y más compañías se enfrentan al problema de integrar sistemas y aplicaciones heterogeneas dentro y fuera de la organización ya sea por fusiones, adquisiciones, requisitos comerciales o simplemente un cambio en la direción tecnológica. No es raro encontrar una gran cantidad de tecnologías y plataformas dentro de una solo compañía, desde productos de código libre y comerciales hasta sistemas y equipos heredados (\emph{legacy}).
+La integración de tecnologías heterogéneas es una de las áreas principales en donde la comunicación basada en mensajes juega un papel clave. Más y más compañías se enfrentan al problema de integrar sistemas y aplicaciones heterogéneas dentro y fuera de la organización ya sea por fusiones, adquisiciones, requisitos comerciales o simplemente un cambio en la direción tecnológica. No es raro encontrar una gran cantidad de tecnologías y plataformas dentro de una solo compañía, desde productos de código libre y comerciales hasta sistemas y equipos heredados (\emph{legacy}).
 
-La comunicación basada en mensajes también ofrece la habilidad de procesar solicitudes de manera asincrónica, proporcionando a los arquitectos y desarrolladores soluciones para reducir o eliminar cuellos de botella en un sistema e incrementar la productividad del usuario final y del sistema en general. Dado que la comunicación basada en mensajes provee un alto grado de desacoplamiento entre componentes, los sitemas que utilizan esta tecnología también logran contar con altos grados de agilidad y flexibilidad en su arquitectura.
+La comunicación basada en mensajes también ofrece la habilidad de procesar solicitudes de manera asincrónica, proporcionando a los arquitectos y desarrolladores soluciones para reducir o eliminar cuellos de botella en un sistema e incrementar la productividad del usuario final y del sistema en general. Dado que la comunicación basada en mensajes provee un alto grado de desacoplamiento entre componentes, los sistemas que utilizan esta tecnología también logran contar con altos grados de agilidad y flexibilidad en su arquitectura.
 
 A los sistemas de mensajería de aplicación-a-aplicación que se utilizan sistemas de negocios se les denomina genéricamente sistemas de mensajería empresarial o \emph{middleware} orientado a mensajes\cite{jms20}. MOM permite a dos o más aplicaciones intercambiar información en forma de mensajes. Un mensaje, en este caso, es un paquete autocontenido de datos de negocio y encabezados de enrutamiento de red. Los datos de negocio contenidos en un mensaje puede ser cualquier cosa, van a depender de cada negocio, y usualmente contiene información acerca de algún tipo de transacción. En sistemas de mensajería empresariales, los mensajes informan a una aplicación de la ocurrencia de algún evento en otro sistema. La tasa de mensajes depende de la capacidad de la implementación de MOM o \emph{broker}. El retraso depende de la latencia en el \emph{broker} y en los caminos de entrada y salida\cite{chew}.
 
@@ -272,7 +270,7 @@ Al usar MOM, los mensajes son trasmitidos desde una aplicación a otra a través
 
 Los fabricantes de MOM usan diferentes formatos de mensajes y protocolos de red para intercambiar mensajes pero la semántica básica es la misma. Una interfaz de programación de aplicación (API, por sus siglas en inglés) se utiliza para crear un mensaje, cargar los datos, asignar información de enrutamiento y enviar el mensaje. La misma API se utiliza para recibir los mensajes producidos por otras aplicaciones.
 
-En todos los sistemas modernos de mensajería empresarial, las aplicaiones intercambian mensajes a través de canales virtuales llamados destinos(\emph{destinations}). Cuando un mensaje se envía, se dirije a un destino (por ejemplo una cola o un tópico) no a una aplicación específica. Cualquier aplicación que subscriba o registre un interés en ese destino puede recibir el mensaje. De esta forma, las aplicaciones que reciben mensajes y aquellas que envían mensajes están desacopladas. Los emisores y receptores no están enlazados uno con otro de ninguna forma y pueden enviar y recibir mensajes como mejor les parezca.
+En todos los sistemas modernos de mensajería empresarial, las aplicaiones intercambian mensajes a través de canales virtuales llamados destinos(\emph{destinations}). Cuando un mensaje se envía, se dirije a un destino (por ejemplo una cola o un tópico) no a una aplicación específica. Cualquier aplicación qu subscriba o registre un interés en ese destino puede recibir el mensaje. De esta forma, las aplicaciones que reciben mensajes y aquellas que envían mensajes están desacopladas. Los emisores y receptores no están enlazados uno con otro de ninguna forma y pueden enviar y recibir mensajes como mejor les parezca.
 
 Un concepto clave de MOM es que los mensajes son entregados de forma asincrónica desde un sistema a otros sobre la red. El entregar un mensaje de manera asicrónica significa que el emisor no requiere esperar a que el mensaje sea recibido o manejado por el receptor, él es libre de enviar el mensaje y continuar su procesamiento. Los mensajes asicrónicos son tratados como unidades autónomas: cada mensaje es autocontenido y lleva consigo todos los datos necesarios para ser procesado.
 
@@ -288,64 +286,66 @@ En comunicación de mensajes asincrónicos, las aplicaciones usan una API para c
 
 La arquitecturas de MOM de hoy en día varían en su implementación. Van desde las arquitecturas centralizadas que dependen de un servidor de mensajes para realizar enrutamiento a arquitecturas descentralizadas que distribuyen el procesamiento del servidor hacia los clientes. Una variedad de protocolos como \texttt{TCP/IP, HTTP, SSL} y \texttt{IP} son empleados como capa de transporte de red.
 
-Los sistemas de mensajería están compuestos por clientes de mensajería (\emph{messaging clients}) y algún tipo de servidos MOM. Los clientes envían mensajes el servidor de mensajería el cual distribuye estos mensajes a otros clientes. El cliente es una aplicación de negocio o componente que es usa una API de mensajería.
+Los sistemas de mensajería están compuestos por clientes de mensajería (\emph{messaging clients}) y algún tipo de servidor MOM. Los clientes envían mensajes al servidor de mensajería el cual distribuye estos mensajes a otros clientes. El cliente es una aplicación de negocio o componente que es usa una API de mensajería.
 
 \subsection{Modelos de mensajería}
 
 \subsubsection{Punto-a-Punto}
-Este modelo de mensajería permite a los clientes enviar y recibir mensajes de forma sincrona como asíncrona a través de canales virtuales conocidos como colas. En este modelo a los productores de mensajes se les llama emisores (\emph{senders}) y a los consumidores se les conoce como receptores(\emph{receivers}). El modelo punto-a-punto ha sido tradicionalmente un modelo basado en \emph{polling}, en donde los mensajes son solicitados desde la cola en lugar de ser puestos en el cliente automáticamente. Los mensajes que se envían a una cola son recibidos por uno y solo un \emph{receiver}, aunque pueden haber otros \emph{receivers} escuchando en la cola por el mismo mensaje. Este es un modelo que promueve acoplamiento esto porque generalmente el \emph{sender} conocer cómo el mensaje va a ser utilizado y quién lo va a recibir. 
+Este modelo de mensajería permite a los clientes enviar y recibir mensajes de forma síncrona como asíncrona a través de canales virtuales conocidos como colas. En este modelo a los productores de mensajes se les llama emisores (\emph{senders}) y a los consumidores se les conoce como receptores (\emph{receivers}). El modelo punto-a-punto ha sido tradicionalmente un modelo basado en \emph{polling}, en donde los mensajes son solicitados desde la cola en lugar de ser puestos en el cliente automáticamente. Los mensajes que se envían a una cola son recibidos por uno y solo un \emph{receiver}, aunque pueden haber otros \emph{receivers} escuchando en la cola por el mismo mensaje. Este es un modelo que promueve acoplamiento esto porque generalmente el \emph{sender} conocer cómo el mensaje va a ser utilizado y quién lo va a recibir. 
 
 \subsubsection{\emph{Publish-and-Subscribe}}
-En este modelo, los mesajes son publicados en un canal virtual llamado tópico. Los productores de mensajes son conocidos como \emph{publishers} y a los consumidores se les llama \emph{subscribers}. Los mensajes pueden ser recibidios por múltiples \emph{subscribers}, a diferencia del modelo punto-a-punto. Cada \emph{subscriber} recibe una copia de cada mensaje. Este es un modelo basado en \emph{push} en donde los mensajes son automáticamente transmitidos a los consumidores sin que estos tengan que solicitarlos o revisar la cola por nuevos mensajes. 
+En este modelo, los mensajes son publicados en un canal virtual llamado tópico. Los productores de mensajes son conocidos como \emph{publishers} y a los consumidores se les llama \emph{subscribers}. Los mensajes pueden ser recibidios por múltiples \emph{subscribers}, a diferencia del modelo punto-a-punto. Cada \emph{subscriber} recibe una copia de cada mensaje. Este es un modelo basado en \emph{push} en donde los mensajes son automáticamente transmitidos a los consumidores sin que estos tengan que solicitarlos o revisar la cola por nuevos mensajes. 
 
-Este modelo tiende a ser menos acoplado que el modelo punto-a-punto debido a que el publicador del mensaje generalmente no está conciente de cuántos subscritores hay y lo que van a hacer estos con el mensaje.
+Este modelo tiende a ser menos acoplado que el modelo punto-a-punto debido a que el publicador del mensaje generalmente no está conciente de cuántos subscritores hay y lo qué van a hacer estos con el mensaje.
 
 \section{Ingeniería de rendimiento de software (\emph{Software Performance Engineering})}
 La ingeniería de software tiene como objetivo tratar los retos de el proceso de desarrollo de software por mediante una disciplina de ingeniería. Una característica de esto es la disponibilidad de un catálogo de métodos y prácticas además de guías para la selección sistemática de estas prácticas. El objetivo ofrecer calidad, costo y plazos de entrega predecibles para el producto de ingeniería.
 
-Un atributo no funcional que es usualmente es de alta importancia durante el desarrollo de software es el rendimiento del sistema en cuestión. Si los sistemas sufren de un rendimiento insuficiente, estos hace que usualmente no se utilicen como se esperaba o bien hacen que los proyectos fallen. Por lo tanto, la predicción del rendimiento de los sistemas de software está en el centro de agendas de investigación desde finales de los años noventa. El termino rendimiento a menudo  caracteriza el comportamiento en el tiempo y la eficiencia de los recursos de los sistema de hardware y de software. Las propiedades de rendimiento más importantes son tiempos de respuesta, \emph{throughput} y utilización de recursos.
+Un atributo no funcional que es usualmente es de alta importancia durante el desarrollo de software es el rendimiento del sistema en cuestión. Si los sistemas sufren de un rendimiento insuficiente, esto hace que usualmente no se utilicen como se esperaba o bien hacen que los proyectos fallen. Por lo tanto, la predicción del rendimiento de los sistemas de software está en el centro de agendas de investigación desde finales de los años noventa\cite{huber-et-al}. El término rendimiento a menudo  caracteriza el comportamiento en el tiempo y la eficiencia de los recursos de los sistema de hardware y de software. Las propiedades de rendimiento más importantes son tiempos de respuesta, \emph{throughput} y utilización de recursos.
 
-La ingeniería de rendimiento de software (SPE, por sus siglas en inglés) se dedica a evaluar el rendimiento de sistemas de software al ofrecer diferentes métodos como modelado analítico, simulación y toma de mediciones. El objetivo de SPE es conducir evaluaciones del rendimiento de arquitecturas de software tan pronto como se pueda. 
+La ingeniería de rendimiento de software se dedica a evaluar el rendimiento de sistemas de software al ofrecer diferentes métodos como modelado analítico, simulación y toma de mediciones. El objetivo de SPE es conducir evaluaciones del rendimiento de arquitecturas de software tan pronto como se pueda. 
 
-En SPE, la creación y evaluación de modelos de rendimiento es un concepto centro para evaluar cuantitativamente el rendimiento del diseño de un sistema y predecir el rendimiento de otras alternativas de diseño. Un modelo de rendimiento captura el comportamiento relevante al rendimiento de un sistema para identificar el efecto de cambios en la configuración o en la carga de trabajo en el rendimiento. Permite predecir los efectos de tales cambios sin necesidad de implementarlo y ponerlo en producción, que podrían ser no solamente costoso sino también un desperdicio en el caso que un el hardware con el que se cuenta prueba ser insuficiente para soportar la intensidad de la carga de trabajo.
+En SPE, la creación y evaluación de modelos de rendimiento es un concepto clave para evaluar cuantitativamente el rendimiento del diseño de un sistema y predecir el rendimiento de otras alternativas de diseño. Un modelo de rendimiento captura el comportamiento relevante al rendimiento de un sistema para identificar el efecto de cambios en la configuración o en la carga de trabajo en el rendimiento. Permite predecir los efectos de tales cambios sin necesidad de implementarlo y ponerlo en producción, que podrían ser no solamente tareas costosas sino también un desperdicio en el caso que un el hardware con el que se cuenta pruebe ser insuficiente para soportar la intensidad de la carga de trabajo.
 
 El punto de inicio de la mayoría de enfoques de SPE es la arquitectura del sistema de software. La arquitectura puede ser mejorada con anotaciones de rendimiento. Este modelo de software debe ser transformado en un modelo de rendimiento --como por ejemplo redes de colas, redes de Petri o cadenas de Markov -- para luego ser resuelto para las métricas de interés.
 
 En el área de SPE, la idea de usar tecnologías orientadas a modelos ha ganado atención porque estas proporcionan transformación automática desde algún origen hacia un modelo de rendimiento. Sin embargo, los métodos de predicción de rendimiento basados en modelos requieren meta-modelos adecuados. Estos meta-modelos formalizan la sintáxis y semántica del modelo origen y destino. La transformación y procesamiento automático simplifica el enfoque de ingeniería de rendimiento de software y lo hace menos propenso a errores.
 
 \subsection{Predicción de rendimiento dirigida por modelos}
-La predicción del rendimiento dirigida por modelos permite a los arquitectos de software especificar modelos de rendimiento en un lenguaje especifico a su dominio. Esto puede a partir de modelos UML anotados con información relevante al rendimiento o por medio de lenguajes de descripción de arquitecturas especializados para la predicción de rendimiento como \emph{Palladio Component Model} (PCM). Para derivar métricas de rendimiento, el modelo de software se transforma en un modelo de rendimiento, como se muestra en la figura \ref{fig:model-driven-performance-prediction}. Las métricas de rendimiento derivadas del modelo de rendimiento deberían traducirse nuevamente al modelo de diseño, para permitir una interpretacio4n fácil para los arquitectos de software.
+La predicción del rendimiento dirigida por modelos permite a los arquitectos de software especificar modelos de rendimiento en un lenguaje especifico a su dominio. Esto puede a partir de modelos UML anotados con información relevante al rendimiento o por medio de lenguajes de descripción de arquitecturas especializados para la predicción de rendimiento como \emph{Palladio Component Model} (PCM) \cite{palladio-seminal, palladio-blue-book}. Para derivar métricas de rendimiento, el modelo de software se transforma en un modelo de rendimiento, como se muestra en la figura \ref{fig:model-driven-performance-prediction}. Las métricas de rendimiento derivadas del modelo de rendimiento deberían traducirse nuevamente al modelo de diseño, para permitir una interpretación fácil para los arquitectos de software.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=15cm]{model-driven-performance-prediction}
-  \caption{\small{Predicción de rendimiento dirigido por modelos.}}
+  \caption{\small{Predicción de rendimiento dirigido por modelos. Tomado de \cite{happe-et-al}}}
   \label{fig:model-driven-performance-prediction}
 \end{figure}
 
 \section{Modelado de Arquitecturas de Software con el \emph{Palladio Component Model (PCM)}}
-El \emph{Palladio Component Model} es un enfoque de modelaje para arquitecturas de software basados en componentes que permite predicción de rendimiento basada en modelos. PCM soporta el proceso de desarrollo de ingeniería basado en componentes y proporciona conceptos de modelaje para describir componentes de software, arquitectura de software, puesta en producción (\emph{deployment}) de componentes y perfiles de uso de sistemas de software basados en componentes en diferentes submodelos (Figura \ref{fig:pcm-instance}). 
+El \emph{Palladio Component Model} es un enfoque de modelaje para arquitecturas de software basados en componentes que permite predicción de rendimiento basada en modelos. PCM contribuye el proceso de desarrollo de ingeniería basado en componentes y proporciona conceptos de modelaje para describir componentes de software, arquitectura de software, despliegue (\emph{deployment}) de componentes y perfiles de uso de sistemas de software basados en componentes en diferentes submodelos (Figura \ref{fig:pcm-instance}). 
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=15cm]{palladio-cbse-process}
-  \caption{\small{Instancia de un modelo PCM}}
+  \caption{\small{Instancia de un modelo PCM. Tomado de \cite{happe-et-al}}}
   \label{fig:pcm-instance}
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Especificaciones de componentes} son descripciones abstractas y paramétricas de los componentes de software. En las especificaciones de software se proporciona una descripción del comportamiento interno del componente así como las demandas de sus recursos en RDSEFFs(\emph{Resource Demanding Service EFFect specifications}) utilizando una sintaxis similar a los diagramas de actividad de UML.
-    \item \textbf{Un modelo de ensamblaje} (\emph{assembly model}) especifica qué tipo de componentes se utilizan en una instancia de aplicación modelada y si las instancias del component se replican. Además, define cómo las instancias del component se conectan representando la arquitectura de software.
-    \item El entorno de ejecución y los recursos, así como el despliegue(\emph{deployment}) de instancias de componentes para dichos contenedores de recursos se definen en un \textbf{modelo de asignación}(\emph{allocation model}).
+    \item \textbf{Especificaciones de componentes} son descripciones abstractas y paramétricas de los componentes de software. En las especificaciones de software se proporciona una descripción del comportamiento interno del componente así como las demandas de sus recursos en RDSEFFs (\emph{Resource Demanding Service EFFect specifications}) utilizando una sintaxis similar a los diagramas de actividad de UML.
+    \item \textbf{Un modelo de ensamblaje} (\emph{assembly model}) especifica qué tipo de componentes se utilizan en una instancia de aplicación modelada y si las instancias del componente se replican. Además, define cómo las instancias del componente se conectan representando la arquitectura de software.
+    \item El entorno de ejecución y los recursos, así como el despliegue (\emph{deployment}) de instancias de componentes para dichos contenedores de recursos se definen en un \textbf{modelo de asignación} (\emph{allocation model}).
     \item El \textbf{modelo del uso} especifica la interacción de los usuarios con el sistema utilizando una sintaxis similar al diagrama de actividades de UML proporcionando una descripción abstracta de la secuencia y la frencuencia en que los usuarios activan las operaciones disponibles en un sistema.
 \end{itemize}
 
-Un modelo PCM abstrae un sistema de software a nivel de arquitectura y se anota con consumos de recursos que fueron medidos previamente u otros que son estimados. El modelo puede entonces ser usado en transformaciones de modelo-a-modelo o modelo-a-texto a un modelo de análisis en particular (redes de colas o simulación de código) que puede ser analiticamente resuelto o simulado para obtener resultados sobre el rendimiento y predicciones del sistema modelado. Los resultados del rendimiento y las predicciones pueden ser utilizadas como retroalimentación para evaluar y mejorar el diseño inicial, permitiendo así una evaluación de calidad de los sistemas de software en base a un modelo.
+Un modelo PCM abstrae un sistema de software a nivel de arquitectura y se anota con consumos de recursos que fueron medidos previamente u otros que son estimados. El modelo puede entonces ser usado en transformaciones de modelo-a-modelo o modelo-a-texto a un modelo de análisis en particular (redes de colas o simulación de código) que puede ser analíticamente resuelto o simulado para obtener resultados sobre el rendimiento y predicciones del sistema modelado. Los resultados del rendimiento y las predicciones pueden ser utilizadas como retroalimentación para evaluar y mejorar el diseño inicial, permitiendo así una evaluación de calidad de los sistemas de software en base a un modelo\cite{noorshams}.
 
 \chapter{Objetivos}
 
 \section{Objetivo General}
-Diseñar un modelo de sistemas distribuidos de intercambio mensajes (\emph{message-oriented middleware}) para evaluar la influencia que tienen en el rendimiento de un sistema de software por medio de modelado y simulación basado en componentes.
+%Diseñar un modelo de sistemas distribuidos de intercambio mensajes (\emph{message-oriented middleware}) para evaluar la influencia que tienen en el rendimiento de un sistema de software por medio de modelado y simulación basado en componentes.
+
+Diseñar un método para modelar sistemas distribuidos de intercambio de mensajes (\emph{message-oriented middleware}) para evaluar la influencia que tienen en el rendimiento de un sistema de software.
 
 \section{Objetivos Específicos}
 \begin{enumerate}
@@ -361,12 +361,12 @@ Diseñar un modelo de sistemas distribuidos de intercambio mensajes (\emph{messa
 \section{Revisión de literatura}
 \paragraph{Alineado con objetivo específico~\ref{itm:obj1}}
 
-\paragraph{} Se pretende identificar los resultados de otros estudios relacionados como modelaje de rendimiento de software, así como retos y oportunidades de investigación que existan en esta área. Las preguntas de investigación que inicialmente propuestas para conducir esta revisión son las siguientes:
+\paragraph{} Se pretende identificar los resultados de otros estudios relacionados con modelaje de rendimiento de software, así como retos y oportunidades de investigación que existan en esta área. Las preguntas de investigación inicialmente propuestas para conducir esta revisión son las siguientes:
 \begin{enumerate}
     \item[\textbf{PI1}] ¿Cuáles enfoques de predicción y medición del rendimiento en sistemas de software basados en componente se han propuesto?
     \item[\textbf{PI2}] ¿Cuáles enfoques de predicción y medición de rendimiento de software se han utilizado para \emph{middleware} orientado a mensajes?    
     \item[\textbf{PI3}] ¿Qué retos y oportunidades existen con estos enfoques en la actualidad?
-    \item[\textbf{PI4}] ¿Qué herramientas hay disponibles para modelodo, rendimiento...
+    \item[\textbf{PI4}] ¿Qué herramientas hay disponibles para modelaje de rendimiento de software?
 \end{enumerate}
 
 
@@ -385,6 +385,16 @@ A la aplicación adaptada se le realizarán mediciones de su rendimiento con el 
 Este nuevo modelo se ejercitará con los perfiles de uso de la aplicación de referencia, con el fin de validar si este puede aproximar el comportamiento del sistema ahora que se le han introducido cambios. 
 
 \chapter{Cronograma}
+Se cuentan con aproximadamente 11 semanas para llevar a cabo este trabajo. Las primeras dos semanas se van a dedicar a hacer una revisión de la literatura relevante. 
+
+Luego de esto, se dedicarán cuatro semanas a seleccionar una aplicación de referencia y adaptarla para que utilice comunicación basada en mensajes en algún punto de su ejecución. Una vez adaptada se ejecutarán pruebas de carga para determinar cuál es su rendimiento. 
+
+La última etapa de la investigación será la de crear un modelo del rendimiento del nuevo sistema utilizando PCM. A este modelo se le ejecutarán simulaciones de uso con el fin de ir calibrando su precisión.
+
+A continuación se presenta el calendario de actividades propuesto para esta investigación: 
+
+\includepdf[landscape, pages=1]{cronograma-tema-selecto-1}
+\includepdf[landscape, pages=1]{cronograma-tema-selecto-2}
 
 \bibliographystyle{ACM-Reference-Format}
 \begin{thebibliography}{9}
@@ -417,6 +427,12 @@ DOI: \href{https://ezproxy.itcr.ac.cr:2878/10.1109/WICSA-ECSA.212.11}{10.1109/WI
 \bibitem{jms20} Mark Richards, Richard Monson-Haefel, David Chappell. \emph{Java Message Service}. O'Reilly Media. Segunda Edición. 2009.
 
 \bibitem{martince-et-al} Tomáş Martinec, Lukáş Marek, Antonín Steinhauser, Petr Tůma, Qais Noorshams, Andreas Rentschler, and Ralf Reussner. \emph{Constructing performance model of JMS middleware platform}. In Proceedings of the 5th ACM/SPEC international conference on Performance engineering (ICPE '14). ACM, New York, NY, USA, 123-134. 2014. DOI: \url{https://ezproxy.itcr.ac.cr:2878/10.1145/2568088.2568096}
+
+\bibitem{happe-et-al} Jens Happe, Holger Friedrich, Steffen Becker, and Ralf H. Reussner. \emph{A pattern-based performance completion for Message-oriented Middleware}. In Proceedings of the 7th international workshop on Software and performance (WOSP '08). ACM, New York, NY, USA, 165-176. 2008. DOI: \url{http://ezproxy.itcr.ac.cr:2075/10.1145/1383559.1383581}
+
+\bibitem{noorshams} Qais Noorshams. \emph{Modeling and Prediction of I/O Performance in Virtualized Environments}. PhD thesis, Karlsruhe Institute of Technology (KIT), 2015. URL: \url{http://digbib.ubka.uni-karlsruhe.de/volltexte/1000046750}
+
+\bibitem{palladio-blue-book} Ralf H. Reussner, Steffen Becker, Jens Happe, Robert Heinrich, Anne Koziolek, Heiko Koziolek, Max Kramer, and Klaus Krogmann. \emph{Modeling and Simulating Software Architectures: The Palladio Approach}. The MIT Press. 2016.
 
 \end{thebibliography}
 
