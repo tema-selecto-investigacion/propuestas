@@ -256,6 +256,105 @@ Con respecto a MOM, aunque se han publicado modelos de rendimiento sobre estos\c
 
 \chapter{Marco Teórico}
 
+\section{Revisión de la Literatura}
+
+\subsection{Estrategia}
+Esta sección presenta la estrategia emprendida para cubrir el cuerpo de conocimiento relacionado con ingeniería de rendimiento de software La estrategia general se basó en un proceso iterativo de identificación y lectura de artículos, luego identificar y leer artículos relevantes a partir de referencias y citas bibliográficas.
+
+\subsection{Preguntas de Investigación}
+Las preguntas de investigación seleccionadas para conducir la revisión de la literatura fueron:
+\begin{enumerate}
+    \item[\textbf{PI1}] ¿Cuáles enfoques de predicción y medición del rendimiento en sistemas de software basados en componente se han propuesto?
+    \item[\textbf{PI2}] ¿Cuáles enfoques de predicción y medición de rendimiento de software se han utilizado para \emph{middleware} orientado a mensajes?    
+    \item[\textbf{PI3}] ¿Qué retos y oportunidades existen con estos enfoques en la actualidad?
+    \item[\textbf{PI4}] ¿Qué herramientas hay disponibles para modelaje de rendimiento de software?
+\end{enumerate}
+
+\subsection{Estrategia de Búsqueda}
+Con el fin de identificar el primer conjunto de artículos relevantes, se hizo una revisión preliminar con Google Scholar\footnote{\url{http://scholar.google.com}} porque con este motor de búsqueda se puede abarcar una amplio número de artículos y actas académicas de diferentes fuentes. El criterio de búsqueda se basó en búsquedas de palabras derivadas del tema de investigación y las preguntas de investigación. Se incluyeron palabras como ``component-based software'', ``software performance engineering'', ``software performance modeling'', ``middleware oriented messages'', ``modeling middleware oriented messages'', ``broker modeling'', ``palladio component model'', ``modeling software architecture''
+
+La búsqueda de la literatura se realizó en Marzo del 2018 usando las siguientes bases de datos electrónicas:
+\begin{itemize}
+    \item ACM \emph{Digital Library} 
+    \item IEEE \emph{Explore Digital Library}
+    \item Safari Books Online\footnote{\url{https://www.safaribooksonline.com}}
+    \item Google Scholar
+\end{itemize}
+
+\subsection{Criterio de Selección}
+Se aplicó el siguiente criterio de inclusión de artículos para esta revisión:
+\begin{itemize}
+    \item Estudios que dan a conocer enfoques de análisis de rendimiento de software basado en componentes
+    \item Estudios sobre modelaje de rendimiento de software
+    \item Estudios sobre modelaje de rendimiento en \emph{middleware} orientado a mensajes
+    \item Estudios, aplicaciones o casos de uso de \emph{Palladio Component Model}
+    \item Estudios que reporten sobre éxito, fracaso y retos de la ingeniería de rendimiento de sofware basado en componentes
+\end{itemize}
+
+Los criterios de exclusión de artículos fueron los siguiente:
+\begin{itemize}
+    \item Estudios relacionados ingeniería de rendimiento de software pero que no cubren o cubren muy poco aspectos sobre modelaje y simulación de arquitecturas.
+    \item Artículos publicados hace más de 15 años atrás (rango aceptable 2003-2018).
+\end{itemize}
+
+\subsection{Resultado de la Revisión}
+A continuación se presenta...
+
+\section{Ingeniería de rendimiento de software (\emph{Software Performance Engineering})}
+%La ingeniería de software tiene como objetivo tratar los retos de el proceso de desarrollo de software por mediante una disciplina de ingeniería. Una característica de esto es la disponibilidad de un catálogo de métodos y prácticas además de guías para la selección sistemática de estas prácticas. El objetivo ofrecer calidad, costo y plazos de entrega predecibles para el producto de ingeniería.
+
+Una definición comúnmente utilizada para definir ingeniería de rendimiento de software es la que que brinda Woodside\cite{woodside-et-al}: ``Ingeniería de rendimiento de software (\emph{Software Performance Engineering} - SPE) representa toda la colección de actividades de ingeniería de software y análisis relacionados utilizadas a través del ciclo de desarrollo de software que están dirigidos a cumplir con los requisitos de rendimiento''. 
+
+De acuerdo con este mismo autor, los enfoques para ingeniería de rendimiento puede ser divididos en dos categorías: basadas en mediciones y basadas en modelos. La primera es la más común y utiliza pruebas, diagnóstico y ajustes una vez que existe un sistema en ejecución que se puede medir, es por esto que solamente puede ser utilizada conforme se va acercando el final del ciclo de desarrollo de software. Al contrario del enfoque basado en mediciones, el enfoque basado en modelos se centra en las etapas iniciales del desarrollo y inición con el enfoque de ingeniería de rendimiento propuesto por Smith \cite{thijmen-thesis}. Como el nombre lo indica, en este enfoque los modelos son clave para hacer predicciones cuantitativas de qué tan bien un arquitectura puede cumplir sus expectativas de rendimiento.
+
+Se han propuesto otras clasificaciones de enfoques para SPE pero, con respecto a la evaluación de sistemas basados en componentes, en \cite{performance-model-survey} se deja clasificación a un lado debido a que se argumenta que la mayoría de enfoques de modelaje toman alguna medición como entrada y a la mayoría de los métodos de medición los acompaña algún modelo.
+
+
+\subsubsection{Ingeniería de rendimiento basada en mediciones}
+Los enfoques basados en mediciones prevalencen en la industria\cite{thijmen-thesis} y son típicamente utilizados para verificación(¿el sistema cumple con su requisito de rendimiento?) o para localizar y arreglar \emph{hot-spots} (cuáles son las partes que tienen peor rendimiento en el sistema). La medición de rendimiento se remota al inicio de la era de la computación, lo que ha generado una amplia gama de herramientas como generadores de carga y monitores para crear cargas de trabajo ficticias y llevar a cabo la medición de un sistema respectivamente.
+
+Las pruebas de rendimiento aplican técnicas basadas en medición y usualmente esto es hecho luego de las pruebas funcionales o de carga. Las pruebas de carga verifican el funcionamiento de un sistema bajo cargas de trabajo pesadas, mientras que las pruebas de rendimiento son usadas para obtener datos cuantitativos de características de rendimiento, como tiempos de respuesta, \emph{throughput} y utilización de hardware para una configuración de un sistema bajo una carga de trabajo definida.
+
+\subsubsection{Ingeniería de rendimiento a través de modelado} 
+La importancia del modelado del rendimiento está motivada por el riesgo de problemas graves de rendimiento\cite{palladion-screencast} y la creciente complejidad de sistemas modernos, lo que hace difícil abordar los problemas de rendimiento al nivel de código. Cambios considerables en el diseño o en las arquitecturas pueden ser requeridos para mitigar los problemas de rendimiento. Por esta razón, la comunidad de investigación de modelado de rendimiento intenta luchar contra el enfoque de ``arreglar las cosas luego'' durante el proceso de desarrollo. Con la aplicación de modelo del rendimiento de software se busca encontrar problemas de rendimiento y alternativas de diseño de manera temprana en el ciclo de desarrollo, evitando así el costo y la complejidad de un rediseño o cambios en los requerimientos.
+
+Las herramientas de modelado de rendimiento ayudar a predecir la conducta del sistema antes que este sea construido o bien, evaluar el resultado de un cambio antes de su implementación. El modelado del rendimiento puede ser usado como una herramienta de alerta temprana durante todo el ciclo de desarrollo con mayor precisión y modelos cada vez más detallados a lo largo del proceso. Al inicio del desarrollo un modelo no puede ser validado contra un sistema real, por esto el modelo representa el conocimiento incierto del diseñador. Como consecuencia de esto el modelo hace suposiciones que no necesariamente se van a dar en el sistema real, pero que van a ser útiles para obtener una abstracción del comportamiento del sistema. En estas fases iniciales, la validación se obtiene mediante el uso del modelo, y existe el riego de conclusiones erróneas debido a su precisión limitada. Luego, el modelo puede ser validado contra mediciones en el sistema real (o parte de este) o prototypos y esto hace que la precisión del modelo se incremente.
+
+En \cite{jit-et-al} se sugiere que los métodos actuales tiene que superar un número de retos antes que puedan ser aplicados en sistemas existentes que enfrentan cambios en su arquitectura o requerimientos. Primero, debe quedar claro cómo se obtienen los valores para los parámetros del modelo y cómo se pueden validar los supuestos. Estimaciones basadas en la experiencia para estos parámetros no son suficientes y mediciones en el sistema existente son necesarias para hacer predicciones precisas. Segundo, la caracterización de la carga del sistema en un entorno de producción es problemática debido a los recursos compartidos (bases de datos, hardware). Tercero, deben desarrollarse métodos para capturar parámetros del modelo dependientes de la carga. Por ejemplo un incremento en el tamaño de la base de datos probablemente incrementará las necesidades de procesador, memoria y disco en el servidor.
+
+Técnicas comúnes de modelado incluyen redes de colas, extensiones de estas como redes de colas en capas y varios tipos de redes de Petri y procesos de álgebra estocástica.
+
+
+\subsection{Modelado de Rendimiento}
+En SPE, la creación y evaluación de modelos de rendimiento es un concepto clave para evaluar cuantitativamente el rendimiento del diseño de un sistema y predecir el rendimiento de otras alternativas de diseño. Un modelo de rendimiento captura el comportamiento relevante al rendimiento de un sistema para identificar el efecto de cambios en la configuración o en la carga de trabajo en el rendimiento. Permite predecir los efectos de tales cambios sin necesidad de implementarlo y ponerlo en producción, que podrían ser no solamente tareas costosas sino también un desperdicio en el caso que un el hardware con el que se cuenta pruebe ser insuficiente para soportar la intensidad de la carga de trabajo.\cite{noorshams}
+
+La forma del modelo de rendimiento puede comprender desde funciones matemáticas a formalismos de modelado estructural y modelos de simulación. Estos modelos varían en sus características clave, por ejemplo, las suposiciones de modelado de los formalismos, el esfuerzo de modelado requerido y el nivel de abstracción.
+
+En cuanto a técnicas de simulación, a pesar que estas permiten un estudio más detallado de los sistemas que modelos analíticos, la construcción de un modelo de simulación requiere de conocimiento detallado tanto de desarrollo de software como de estadística\cite{thijmen-thesis}. Los modelos de simulación también requieren usualmente de mayor tiempo de desarrollo que los modelos analíticos. En \cite{woodside-et-al} se menciona que ``la construcción de un modelo de simulación es caro, algunas veces comparable con el desarrollo de un sistema, y, los modelos de simulación detallados puede tardar casi tanto en ejecutarse como el sistema.
+
+ 
+
+---
+
+
+Un atributo no funcional que es usualmente es de alta importancia durante el desarrollo de software es el rendimiento del sistema en cuestión. Si los sistemas sufren de un rendimiento insuficiente, esto hace que usualmente no se utilicen como se esperaba o bien hacen que los proyectos fallen. Por lo tanto, la predicción del rendimiento de los sistemas de software está en el centro de agendas de investigación desde finales de los años noventa\cite{huber-et-al}. El término rendimiento a menudo  caracteriza el comportamiento en el tiempo y la eficiencia de los recursos de los sistema de hardware y de software. Las propiedades de rendimiento más importantes son tiempos de respuesta, \emph{throughput} y utilización de recursos.
+
+La ingeniería de rendimiento de software se dedica a evaluar el rendimiento de sistemas de software al ofrecer diferentes métodos como modelado analítico, simulación y toma de mediciones. El objetivo de SPE es conducir evaluaciones del rendimiento de arquitecturas de software tan pronto como se pueda. 
+
+En SPE, la creación y evaluación de modelos de rendimiento es un concepto clave para evaluar cuantitativamente el rendimiento del diseño de un sistema y predecir el rendimiento de otras alternativas de diseño. Un modelo de rendimiento captura el comportamiento relevante al rendimiento de un sistema para identificar el efecto de cambios en la configuración o en la carga de trabajo en el rendimiento. Permite predecir los efectos de tales cambios sin necesidad de implementarlo y ponerlo en producción, que podrían ser no solamente tareas costosas sino también un desperdicio en el caso que un el hardware con el que se cuenta pruebe ser insuficiente para soportar la intensidad de la carga de trabajo.
+
+El punto de inicio de la mayoría de enfoques de SPE es la arquitectura del sistema de software. La arquitectura puede ser mejorada con anotaciones de rendimiento. Este modelo de software debe ser transformado en un modelo de rendimiento --como por ejemplo redes de colas, redes de Petri o cadenas de Markov -- para luego ser resuelto para las métricas de interés.
+
+En el área de SPE, la idea de usar tecnologías orientadas a modelos ha ganado atención porque estas proporcionan transformación automática desde algún origen hacia un modelo de rendimiento. Sin embargo, los métodos de predicción de rendimiento basados en modelos requieren meta-modelos adecuados. Estos meta-modelos formalizan la sintáxis y semántica del modelo origen y destino. La transformación y procesamiento automático simplifica el enfoque de ingeniería de rendimiento de software y lo hace menos propenso a errores.
+
+\subsection{Predicción de rendimiento dirigida por modelos}
+La predicción del rendimiento dirigida por modelos permite a los arquitectos de software especificar modelos de rendimiento en un lenguaje especifico a su dominio. Esto puede a partir de modelos UML anotados con información relevante al rendimiento o por medio de lenguajes de descripción de arquitecturas especializados para la predicción de rendimiento como \emph{Palladio Component Model} (PCM) \cite{palladio-seminal, palladio-blue-book}. Para derivar métricas de rendimiento, el modelo de software se transforma en un modelo de rendimiento, como se muestra en la figura \ref{fig:model-driven-performance-prediction}. Las métricas de rendimiento derivadas del modelo de rendimiento deberían traducirse nuevamente al modelo de diseño, para permitir una interpretación fácil para los arquitectos de software.
+
+
+
+
+
+
 \section{\emph{Middleware} Orientado a Mensajes}
 
 Junto con el crecimiento de Internet, los sistemas distribuidos han crecido a una escala masiva. Hoy en día, estos sistemas puede involucrar a miles de entidades distruidas globalmente. Esto ha motivado el estudio de modelos de comunicación y sistemas flexibles, que puedan reflejar la naturaleza dinámica y desacoplada de las aplicaciones.
@@ -298,21 +397,6 @@ En este modelo, los mensajes son publicados en un canal virtual llamado tópico.
 
 Este modelo tiende a ser menos acoplado que el modelo punto-a-punto debido a que el publicador del mensaje generalmente no está conciente de cuántos subscritores hay y lo qué van a hacer estos con el mensaje.
 
-\section{Ingeniería de rendimiento de software (\emph{Software Performance Engineering})}
-La ingeniería de software tiene como objetivo tratar los retos de el proceso de desarrollo de software por mediante una disciplina de ingeniería. Una característica de esto es la disponibilidad de un catálogo de métodos y prácticas además de guías para la selección sistemática de estas prácticas. El objetivo ofrecer calidad, costo y plazos de entrega predecibles para el producto de ingeniería.
-
-Un atributo no funcional que es usualmente es de alta importancia durante el desarrollo de software es el rendimiento del sistema en cuestión. Si los sistemas sufren de un rendimiento insuficiente, esto hace que usualmente no se utilicen como se esperaba o bien hacen que los proyectos fallen. Por lo tanto, la predicción del rendimiento de los sistemas de software está en el centro de agendas de investigación desde finales de los años noventa\cite{huber-et-al}. El término rendimiento a menudo  caracteriza el comportamiento en el tiempo y la eficiencia de los recursos de los sistema de hardware y de software. Las propiedades de rendimiento más importantes son tiempos de respuesta, \emph{throughput} y utilización de recursos.
-
-La ingeniería de rendimiento de software se dedica a evaluar el rendimiento de sistemas de software al ofrecer diferentes métodos como modelado analítico, simulación y toma de mediciones. El objetivo de SPE es conducir evaluaciones del rendimiento de arquitecturas de software tan pronto como se pueda. 
-
-En SPE, la creación y evaluación de modelos de rendimiento es un concepto clave para evaluar cuantitativamente el rendimiento del diseño de un sistema y predecir el rendimiento de otras alternativas de diseño. Un modelo de rendimiento captura el comportamiento relevante al rendimiento de un sistema para identificar el efecto de cambios en la configuración o en la carga de trabajo en el rendimiento. Permite predecir los efectos de tales cambios sin necesidad de implementarlo y ponerlo en producción, que podrían ser no solamente tareas costosas sino también un desperdicio en el caso que un el hardware con el que se cuenta pruebe ser insuficiente para soportar la intensidad de la carga de trabajo.
-
-El punto de inicio de la mayoría de enfoques de SPE es la arquitectura del sistema de software. La arquitectura puede ser mejorada con anotaciones de rendimiento. Este modelo de software debe ser transformado en un modelo de rendimiento --como por ejemplo redes de colas, redes de Petri o cadenas de Markov -- para luego ser resuelto para las métricas de interés.
-
-En el área de SPE, la idea de usar tecnologías orientadas a modelos ha ganado atención porque estas proporcionan transformación automática desde algún origen hacia un modelo de rendimiento. Sin embargo, los métodos de predicción de rendimiento basados en modelos requieren meta-modelos adecuados. Estos meta-modelos formalizan la sintáxis y semántica del modelo origen y destino. La transformación y procesamiento automático simplifica el enfoque de ingeniería de rendimiento de software y lo hace menos propenso a errores.
-
-\subsection{Predicción de rendimiento dirigida por modelos}
-La predicción del rendimiento dirigida por modelos permite a los arquitectos de software especificar modelos de rendimiento en un lenguaje especifico a su dominio. Esto puede a partir de modelos UML anotados con información relevante al rendimiento o por medio de lenguajes de descripción de arquitecturas especializados para la predicción de rendimiento como \emph{Palladio Component Model} (PCM) \cite{palladio-seminal, palladio-blue-book}. Para derivar métricas de rendimiento, el modelo de software se transforma en un modelo de rendimiento, como se muestra en la figura \ref{fig:model-driven-performance-prediction}. Las métricas de rendimiento derivadas del modelo de rendimiento deberían traducirse nuevamente al modelo de diseño, para permitir una interpretación fácil para los arquitectos de software.
 
 \begin{figure}[h]
   \centering
@@ -436,6 +520,16 @@ A continuación se presenta el calendario de actividades propuesto para esta inv
 DOI: \href{https://ezproxy.itcr.ac.cr:2878/10.1109/WICSA-ECSA.212.11}{10.1109/WICSA-ECSA.212.11}. 
 
 \bibitem{media-store} Misha Strittmatter and Amine Kechaou. \emph{The media store 3 case study system}. Technical Report 2016,1, Faculty of Informatics, Karlsruhe Institute of Technology, 2016. URL: \url{http://digbib.ubka.uni-karlsruhe.de/volltexte/documents/3792054}
+
+\bibitem{woodside-et-al} Murray Woodside, Greg Franks, and Dorina C. Petriu. \emph{The Future of Software Performance Engineering}. Future of Software Engineering (FOSE '07), pages 171-187, May 2007. DOI 10.1109/FOSE.2007.32
+
+\bibitem{thijmen-thesis} Thijmen de Gooijer. \emph{Performance Modeling of ASP.Net WebService Applications: an Industrial Case Study}. Master's thesis, Malardalen University, Vasteras, Sweden, 2011.
+
+\bibitem{palladion-screencast} Steffen Becker. \emph{Palladio-Bench Screencasts}. \url{http://www.palladio-simulator.com/tools/screencasts/} Accesado el 20 de Marzo del 2018.
+
+\bibitem{jit-et-al} Yan Jin, Antony Tang, Jun Han, and Yan Liu. \emph{Performance Evaluation and Prediction for Legacy Information Systems}. 29th International Conference on Software Engineering (ICSE'07), pages 540-549, May 2007.
+
+\bibitem{balsamo-et-al} Simonetta Balsamo, Antinisca DiMarco, Paola Inverardi, and MartaSimeoni. \emph{Model-based performance prediction in software development: A survey}. IEEE Trans. Softw. Eng., 30(5):295–310, May 2004.
 
 
 \end{thebibliography}
