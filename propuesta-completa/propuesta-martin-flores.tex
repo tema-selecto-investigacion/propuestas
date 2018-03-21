@@ -332,7 +332,62 @@ La forma del modelo de rendimiento puede comprender desde funciones matemáticas
 
 En cuanto a técnicas de simulación, a pesar que estas permiten un estudio más detallado de los sistemas que modelos analíticos, la construcción de un modelo de simulación requiere de conocimiento detallado tanto de desarrollo de software como de estadística\cite{thijmen-thesis}. Los modelos de simulación también requieren usualmente de mayor tiempo de desarrollo que los modelos analíticos. En \cite{woodside-et-al} se menciona que ``la construcción de un modelo de simulación es caro, algunas veces comparable con el desarrollo de un sistema, y, los modelos de simulación detallados puede tardar casi tanto en ejecutarse como el sistema.
 
- 
+\subsection{Enfoques de ingeniería de rendimiento para software basado en componentes propuestos}
+El encuesta llevada a cabo en \cite{performance-model-survey} proporciona una clasificación de enfoques de medición y predicción de rendimiento para sistemas de software basados en componentes.   En otra clasificación en \cite{balsamo-et-al} se presenta una revisión de métodos de predicción de rendimiento basado en modelos para sistemas en general, pero no analiza los requerimientos propios para sistemas basados en componentes. 
+
+De acuerdo con \cite{performance-model-survey} durante los últimos diez años, los investigadores han propuesto muchos enfoques para evaluar el rendimiento (tiempos de respuesta, \emph{throughput}, utlización de recursos) de sistemas de software basados en componentes. Estos enfoques tratan con predicción de rendimiento y medición del rendimiento. Los primeros analizan el rendimiento esperado de un diseño de software basado en componentes para evitar problemas de rendimiento en la implementación del sistema, lo que podría llevar a costos substanciales para rediseñar la arquitectura. Los otros analizan el rendimiento observable de sistemas de software basados en componentes implementados para entender sus propiedades, determinar su capacidad máxima, identificar componentes críticos y para remover cuellos de botella.
+
+\subsubsection{Métodos de evaluación de rendimiento}
+Los enfoques se agruparon en dos grandes grupos: enfoques principales que proporcionan procesos de evaluación de rendimiento completo y enfoques suplementarios que se centran en aspectos específicos como medición de componentes individuales o modelaje de las propiedades de rendimiento de los conectores de un componente.
+
+\paragraph{Enfoques principales}
+\begin{itemize}
+    \item \textbf{Enfoques de predicción basados en UML}: los enfoques en este grupo se enfocan en la predicción de rendimiento en tiempo de diseño para sistemas de software basado en componentes modelados con el Lenguaje de Modelado Unificado (UML por sus siglas en inglés). UML 2.0 tiene la noción de componente de software como una clase extendida. UML permite modelar el comportamiento de un un componente con diagramas de sequencia, actividad y colaboración. El alojamiento de los componentes puede ser descrito como con diagramas de despliegue(\emph{deployment}). Mientras que UML solamente soporta especificaciones funcionales, su mecanismo de extensión (perfiles que consisten de estereotipos, restricciones y valores etiquetados) ha sido utilizado por el \emph{Object Management Group} para permitir el modelado de atributos de rendimiento como valores de tiempo y parámetros de cargas de trabajo. CB-SPE - \emph{Component-Based Software Performance Engineering} es uno de estos enfoques que utiliza UML.
+    \item \textbf{Enfoques de predicción basedos en Meta-Modelos propietarios}: Los enfoques en este grupo apuntan a las predicciones de rendimiento de tiempo de diseño. En lugar de usar UML como lenguaje de modelado para desarrolladores y arquitectos, estos enfoques tienen meta-modelos propietarios.
+    \begin{itemize}
+        \item CBML - \emph{Component-Based Modeling Language}
+        \item PECT - \emph{The Prediction Enabled Component Technology}
+        \item COMQUAD - \emph{Components with Quantitative properties and Adaptivity}
+        \item KLAPPER
+        \item ROBOCOP
+        \item PALLADIO         
+    \end{itemize}
+    \item \textbf{Enfoques de predicción centrados en \emph{middleware}}: hacen énfasis en la influencia del \emph{middleware} en el rendimiento de un sistema basado en componentes. Por lo tanto miden y modelan el rendimiento de plataformas \emph{middleware} como JavaEE o .Net. Se basan en la suposición que la lógica de negocio de los componentes como tal tienen poco impacto en el rendimiento general del sistema y por eso no requieren un modelado detallado.
+    \begin{itemize}
+        \item NICTA
+    \end{itemize}
+    \item \textbf{Enfoques basados en especificaciones formales}: estos enfoques siguen teorías fundamentales de especificación de rendimiento y no toman en cuenta marcos de trabajo (\emph{frameworks}) de medición y predicción.
+    \begin{itemize}
+        \item RESOLVE
+        \item HAMLET
+    \end{itemize}
+    \item \textbf{Enfoques de monitoreo para sistemas implementados}: asumen que un sistema basado en componentes ha sido implementado y puede ser probado. El objetivo es encontrar problemas de rendimiento en un sistema en ejecución, identificar cuellos de botella y adaptar el sistema para que pueda lograr los requerimientos de rendimiento.
+   \begin{itemize}
+        \item COMPAS
+        \item TESTEJB
+        \item AQUA
+        \item PAD
+    \end{itemize}    
+\end{itemize}
+  
+
+\paragraph{Enfoques Suplementarios}
+\begin{itemize}
+    \item \textbf{Enfoques de monitoreo para componentes implementados}: El objetivo de los enfoques de medición para implementaciones de componentes de software individuales es derivar especificaciones de rendimiento parametrizadas a través de mediciones múltiples. El objetivo es obtener el perfil de uso, dependencias y la plataforma de implementación a partir de la especificación de rendimiento, de modo que pueda usarse en diferentes contextos. 
+    \begin{itemize}
+        \item RefCAM
+        \item COMAERA
+        \item ByCounter
+    \end{itemize}
+    \item \textbf{Enfoques de predicción con énfasis en conectores de componentes}: Estos enfoques asumen un lenguaje de descripción de componentes existente y se centran en modelar y medir el impacto en el rendimiento de las conexiones entre componentes. Estas conexiones pueden implementarse con diferentes técnicas \emph{middleware}.
+    \begin{itemize}
+        \item Verdickt
+        \item Grassi
+        \item Becker
+        \item Happe
+    \end{itemize}        
+\end{itemize}
+
 
 ---
 
