@@ -333,7 +333,7 @@ La forma del modelo de rendimiento puede comprender desde funciones matemáticas
 En cuanto a técnicas de simulación, a pesar que estas permiten un estudio más detallado de los sistemas que modelos analíticos, la construcción de un modelo de simulación requiere de conocimiento detallado tanto de desarrollo de software como de estadística\cite{thijmen-thesis}. Los modelos de simulación también requieren usualmente de mayor tiempo de desarrollo que los modelos analíticos. En \cite{woodside-et-al} se menciona que ``la construcción de un modelo de simulación es caro, algunas veces comparable con el desarrollo de un sistema, y, los modelos de simulación detallados puede tardar casi tanto en ejecutarse como el sistema.
 
 \subsection{Enfoques de ingeniería de rendimiento para software basado en componentes propuestos}
-El encuesta llevada a cabo en \cite{performance-model-survey} proporciona una clasificación de enfoques de medición y predicción de rendimiento para sistemas de software basados en componentes.   En otra clasificación en \cite{balsamo-et-al} se presenta una revisión de métodos de predicción de rendimiento basado en modelos para sistemas en general, pero no analiza los requerimientos propios para sistemas basados en componentes. 
+La encuesta llevada a cabo en \cite{performance-model-survey} proporciona una clasificación de enfoques de medición y predicción de rendimiento para sistemas de software basados en componentes. Otra clasificación es la que se expone en \cite{balsamo-et-al} donde se presenta una revisión de métodos de predicción de rendimiento basado en modelos para sistemas en general, pero no analiza los requerimientos propios para sistemas basados en componentes. 
 
 De acuerdo con \cite{performance-model-survey} durante los últimos diez años, los investigadores han propuesto muchos enfoques para evaluar el rendimiento (tiempos de respuesta, \emph{throughput}, utlización de recursos) de sistemas de software basados en componentes. Estos enfoques tratan con predicción de rendimiento y medición del rendimiento. Los primeros analizan el rendimiento esperado de un diseño de software basado en componentes para evitar problemas de rendimiento en la implementación del sistema, lo que podría llevar a costos substanciales para rediseñar la arquitectura. Los otros analizan el rendimiento observable de sistemas de software basados en componentes implementados para entender sus propiedades, determinar su capacidad máxima, identificar componentes críticos y para remover cuellos de botella.
 
@@ -342,15 +342,19 @@ Los enfoques se agruparon en dos grandes grupos: enfoques principales que propor
 
 \paragraph{Enfoques principales}
 \begin{itemize}
-    \item \textbf{Enfoques de predicción basados en UML}: los enfoques en este grupo se enfocan en la predicción de rendimiento en tiempo de diseño para sistemas de software basado en componentes modelados con el Lenguaje de Modelado Unificado (UML por sus siglas en inglés). UML 2.0 tiene la noción de componente de software como una clase extendida. UML permite modelar el comportamiento de un un componente con diagramas de sequencia, actividad y colaboración. El alojamiento de los componentes puede ser descrito como con diagramas de despliegue(\emph{deployment}). Mientras que UML solamente soporta especificaciones funcionales, su mecanismo de extensión (perfiles que consisten de estereotipos, restricciones y valores etiquetados) ha sido utilizado por el \emph{Object Management Group} para permitir el modelado de atributos de rendimiento como valores de tiempo y parámetros de cargas de trabajo. CB-SPE - \emph{Component-Based Software Performance Engineering} es uno de estos enfoques que utiliza UML.
-    \item \textbf{Enfoques de predicción basedos en Meta-Modelos propietarios}: Los enfoques en este grupo apuntan a las predicciones de rendimiento de tiempo de diseño. En lugar de usar UML como lenguaje de modelado para desarrolladores y arquitectos, estos enfoques tienen meta-modelos propietarios.
+    \item \textbf{Enfoques de predicción basados en UML}: los enfoques en este grupo se enfocan en la predicción de rendimiento en tiempo de diseño para sistemas de software basado en componentes modelados con el Lenguaje de Modelado Unificado (UML por sus siglas en inglés). UML 2.0 tiene la noción de componente de software como una clase extendida. UML permite modelar el comportamiento de un un componente con diagramas de sequencia, actividad y colaboración. El alojamiento de los componentes puede ser descrito como con diagramas de despliegue(\emph{deployment}).     
+%    Mientras que UML solamente soporta especificaciones funcionales, su mecanismo de extensión (perfiles que consisten de estereotipos, restricciones y valores etiquetados) ha sido utilizado por el \emph{Object Management Group} para permitir el modelado de atributos de rendimiento como valores de tiempo y parámetros de cargas de trabajo. 
+    \begin{itemize}
+        \item CB-SPE - \emph{Component-Based Software Performance Engineering} 
+    \end{itemize}
+    \item \textbf{Enfoques de predicción basados en Meta-Modelos propietarios}: Los enfoques en este grupo apuntan a las predicciones de rendimiento de tiempo de diseño. En lugar de usar UML como lenguaje de modelado para desarrolladores y arquitectos, estos enfoques tienen meta-modelos propietarios.
     \begin{itemize}
         \item CBML - \emph{Component-Based Modeling Language}
         \item PECT - \emph{The Prediction Enabled Component Technology}
         \item COMQUAD - \emph{Components with Quantitative properties and Adaptivity}
         \item KLAPPER
         \item ROBOCOP
-        \item PALLADIO         
+        \item Palladio        
     \end{itemize}
     \item \textbf{Enfoques de predicción centrados en \emph{middleware}}: hacen énfasis en la influencia del \emph{middleware} en el rendimiento de un sistema basado en componentes. Por lo tanto miden y modelan el rendimiento de plataformas \emph{middleware} como JavaEE o .Net. Se basan en la suposición que la lógica de negocio de los componentes como tal tienen poco impacto en el rendimiento general del sistema y por eso no requieren un modelado detallado.
     \begin{itemize}
@@ -388,6 +392,62 @@ Los enfoques se agruparon en dos grandes grupos: enfoques principales que propor
     \end{itemize}        
 \end{itemize}
 
+Recientemente varios enfoques de predicción basados en meta-modelos propietarios han sido propuestos para optimización de diseño de arquitecturas, modelado de calidad de servicio y escalabilidad. PerOpteryx\cite{peropteryx} es un enfoque de optimización de diseño de arquitecturas que manipula modelos especificados en \emph{Palladio Component Model} (PCM)\cite{palladio-blue-book} y utiliza el algoritmo evolucionario multi-objetivo NSGA-II. Para análisis de rendimiento utiliza redes de colas en capas. \emph{Descartes Modeling Language}\cite{descartesml} es un lenguaje de modelado de arquitecturas para modelar calidad de servicio y aspectos relacionados con la gestión de recursos de los sistemas, las infraestructuras y los servicios de tecnología de información dinámicos modernos. \emph{CloudScale}\footnote{\url{http://www.cloudscale-project.eu/}}\cite{cloudscale} es un enfoque de diseño y evolución de aplicaciones y servicios escalables en la nube. En CloudScale se identifica y gradualmente se resuelven problemas de escalabilidad en aplicaciones existentes y también permite el modelado de alternativas de diseño y el análisis del efecto de la escalabilidad en el costo. Cabe mencionar que estos últimos enfoques han sido influenciado en gran medida por el trabajo llevado a cabo en PCM.
+
+\subsection{Enfoques de ingeniería de rendimiento para \emph{middleware} orientado a mensajes}
+
+\subsection{Retos de investigación asociados a Ingeniería de rendimiento}
+Informes recientes como \cite{microservices-challenges} y \cite{performance-devops} señalan que los principales retos en investigación de ingeniería de rendimiento en la actualidad están asociados con generación de modelos a partir de código, integración de la evaluación de rendimiento en el ciclo de desarrollo y modelado de rendimiento de sistemas en la nube.
+
+Con respecto a integración en ciclos de desarrollo de software y principalmente en aquellos basados en DevOps, una tendencia hacia una estrecha integración entre equipos desarrollo y operaciones, en \cite{performance-devops} se destaca que la necesidad de tal integración está orientada por el requerimiento de adaptar aplicaciones empresariales a los cambios del ambiente del negocio continuamente. El rendimiento describe las propiedades del sistema con respecto a su ejecución y uso de recursos. Métricas comunes son tiempo de respuesta, \emph{throughput} y la utilización de los recursos. Los objetivos de rendimiento para aplicaciones empresariales son típicamente definidos al establecer cotas superiores/inferiores para estas métricas y transacciones de negocio específicas. 
+
+\subsubsection{Actividades de administración del rendimiento}
+Evaluación del rendimiento basado en modelos:
+\begin{itemize}
+    \item La representación de la memoria principal y del recolector de basura aún no están explícitamente integrados ni considerados en los modelos de rendimiento
+    \item La selección de técnicas apropiadas de solución requiere de mucha experiencia
+\end{itemize}
+
+Extracción de modelos de rendimiento y de cargas de trabajo:
+\begin{itemize}
+    \item La precisión de los modelos puede llegar a expirar si no son actualizados cuando hay cambios. Mecanismos de detección son requeridos para aprender cuando los modelos son antiguos y hay que actualizarlos.
+    \item La extracción de capacidades de rendimiento se basa en una combinación de software y los recursos de hardware en los que se implementa. Este enfoque combinado es compatible con la precisión de la predicción, pero está menos calificado con respecto a la portabilidad de los conocimientos a otras plataformas. Una dirección de investigación futura podría ser extraer modelos separados (por ejemplo, \emph{middleware} y modelos de aplicación separados). 
+\end{itemize}
+
+\subsubsection{Modelos de rendimiento durante etapas diseño }
+\begin{itemize}
+    \item Los retos de utilizar modelos de rendimiento en etapas tempranas de desarrollo es que usualmente es difícil validar la precisión de los modelos hasta que un sistema en ejecución exista. Las predicciones de rendimiento basadas en suposiciones, entrevistas y pruebas previas pueden ser también imprecisas y por tanto las decisiones que se hagan a partir de estas predicciones.
+\end{itemize}
+
+En relación con sistemas y arquitecturas en la nube como las basadas en microservicios otras tecnologías importantes para \emph{deployment} como, virtualización basada en contenedores y soluciones de orquestación de contenedores han emergido. Estas tecnologías permiten explotar plataformas en la nube, proporcionando altos niveles de escalabilidad, disponibilidad y portabilidad para microservicios. A pesar del hecho de que es una necesidad inherente contar con escalabilidad y elasticidad, la ingeniería de rendimiento para microservicios hasta ahora ha tenido poca atención por parte de las comunidades tanto de microservicios como de comunidades de investigación de ingeniería de rendimiento\cite{microservices-challenges}. Un gran cuerpo de conocimiento y buenas prácticas para ingeniería de rendimiento para desarrollo tradicional de software y arquitecturas está disponible. Sin embargo, sus aplicaciones en DevOps imponen tanto retos como oportunidades.
+
+\subsubsection{Retos de investigación en microservicios}
+
+Pruebas de rendimiento
+\begin{itemize}
+    \item Reemplazar y compensar pruebas extensivas de integración y de sistema por un control detallado de los entornos de producción
+    \item Alinear las pruebas de rendimiento y pruebas de regresión de rendimiento con prácticas de entrega continua, por ejemplo, acelerar las estas de pruebas correspondientes.
+    \item Selección dinámica y semi automática de pruebas de rendimiento
+\end{itemize}
+
+Monitoreo
+\begin{itemize}
+    \item Instrumentación para monitoreo distribuido arquitecturas microservicios políglotas 
+    \item Métricas adicionales para monitorear microservicios
+    \item Técnicas de detección precisa de anomalías en arquitecturas de microservicios
+\end{itemize}
+
+
+Modelado del rendimiento: de momento no existen enfoques para modelado del rendimiento de microservicios 
+\begin{itemize}
+    \item Adoptar modelos de rendimiento para casos de uso como planeamiento de capacidad, confiabilidad y resiliencia
+    \item Buscar abstracciones de modelado apropiadas 
+    \item Extracción automática de modelos de rendimiento
+    \item Aprender del comportamiento de la infraestructura e integrarlo en los modelos de rendimiento
+\end{itemize} 
+
+
+\subsection{Herramientas para ingeniería de rendimiento}
 
 ---
 
@@ -586,6 +646,13 @@ DOI: \href{https://ezproxy.itcr.ac.cr:2878/10.1109/WICSA-ECSA.212.11}{10.1109/WI
 
 \bibitem{balsamo-et-al} Simonetta Balsamo, Antinisca DiMarco, Paola Inverardi, and MartaSimeoni. \emph{Model-based performance prediction in software development: A survey}. IEEE Trans. Softw. Eng., 30(5):295–310, May 2004.
 
+\bibitem{peropteryx} Anne Koziolek, Heiko Koziolek, and Ralf Reussner. \emph{PerOpteryx: automated application of tactics in multi-objective software architecture optimization}. In Proceedings of the joint ACM SIGSOFT conference -- QoSA and ACM SIGSOFT symposium -- ISARCS on Quality of software architectures -- QoSA and architecting critical systems -- ISARCS (QoSA-ISARCS '11). ACM, New York, NY, USA, 33-42. 2011. DOI=\url{http://ezproxy.itcr.ac.cr:2075/10.1145/2000259.2000267}
+
+\bibitem{descartesml} Samuel Kounev and Fabian Brosig and Nikolaus Huber. \emph{The Descartes Modeling Language}. Technical Report. Department of Computer Science, University of Wuerzburg. 2014.
+%
+%\bibitem{cloudscale} Sebastian Lehrig and Steffen Becker. 2015. \emph{The CloudScale Method for Software Scalability, Elasticity, and Efficiency Engineering: a Tutorial}. In Proceedings of the 6th ACM/SPEC International Conference on Performance Engineering (ICPE '15). ACM, New York, NY, USA, 329-331. 2015. DOI: \url{https://ezproxy.itcr.ac.cr:2878/10.1145/2668930.2688818}
+
+\bibitem{cloudscale} Gunnar Brataas, Erlend Stav, Sebastian Lehrig, Steffen Becker, Goran Kopčak, and Darko Huljenic. 2013. \emph{CloudScale: scalability management for cloud systems}. In Proceedings of the 4th ACM/SPEC International Conference on Performance Engineering (ICPE '13), Seetharami Seelam (Ed.). ACM, New York, NY, USA, 335-338. 2013. DOI: \url{https://ezproxy.itcr.ac.cr:2878/10.1145/2479871.2479920}
 
 \end{thebibliography}
 
