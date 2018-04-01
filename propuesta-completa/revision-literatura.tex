@@ -466,7 +466,7 @@ Modelado del rendimiento: de momento no existen enfoques para modelado del rendi
 
 
 
-\subsection{Herramientas para para modelaje de rendimiento de software}
+\subsection{Herramientas para modelaje de rendimiento de software}
 En \cite{thijmen-thesis} se llevó a cabo un extensa encuesta sobre el estado del arte de herramientas de modelado de rendimiento de software. Como resultado, se lograron identificar varias herramientas para construir modelos de rendimiento pero, a pesar de esto, muchas de ellas fueron consideradas como no-maduras de acuerdo a los criterios de selección aplicados.
 
 Primero, la herramienta debería de demostrar que se puede aplicar para el modelado de arquitecturas de software, este criterio excluyó a muchas herramientas de bajo nivel. Segundo, debe de estar liberada y disponible y esto excluyó a muchas herramientas descritas en artículos de investigación. Por último, debe ser madura y medianamente estable y este fue requerimiento que no cumplieron mucha de las herramientas publicadas en artículos de investigación.
@@ -558,6 +558,16 @@ Este modelo tiende a ser menos acoplado que el modelo punto-a-punto debido a que
 
 
 \section{Enfoques de ingeniería de rendimiento para \emph{middleware} orientado a mensajes}
+En \cite{happe-et-al} se extiende el \emph{Palladio Component Model} con \emph{performance completions} para \emph{middleware} orientado a mensajes. \emph{Performance completions}\cite{woodside-et-al-2} proporcionan el concepto general de incluir detalles de bajo nivel de ambientes de ejecución en modelos de rendimiento. Con la extensión del modelo, los arquitectos de software puede especificar y configurar comunicación basada en mensajes utilizando un lenguaje basado en patrones de mensajería.
+
+La influencia en el rendimiento de \emph{middleware} orientado a mensajes fue estudiada en \cite{liu-gordon}. Se consideró el \emph{middleware} como un factor determinante del rendimiento en sistemas distribuidos y se hizo un mayor enfoque en su modelado y evaluación. Se propuso un enfoque basado en medición en combinación con modelos matemáticos para predecir el rendimiento de aplicaciones J2EE\footnote{\emph{Java Enterprise Edition}}. Las mediciones proporcionan los datos necesarios para calcular los valores de entrada del modelo de red de cola. El cálculo refleja el comportamiento de la aplicación en particular. La red de cola se resuelve para derivar métricas de rendimiento tales como tiempos de respuesta y \emph{throughput} de la aplicación. 
+
+La investigación llevada a cabo en \cite{chew} presenta un modelo abstracto de \emph{middleware} orientado a mensajes basado en Apache Qpid junto con el uso de modelos exógenos de autorregressión (ARX por sus siglas en inglés) que describen el comportamiento del \emph{middleware} durante condiciones de cuellos de botella. Los modelos ARX son modelos autorregresivos en donde la salida depende de la salida anterior así como de estimulos externos. Estos componentes son integrados para producir una técnica generalizada de calibración para rendimiento del \emph{middleware} y detección de cuellos de botella en el mismo.
+
+En \cite{martince-et-al} se construyen modelos de rendimiento para \emph{middleware} que implementa el estándar \emph{Java Messaging Service} (JMS). Se utiliza análisis de código y mediciones experimentales de implementaciones de JMS populares para mostrar situaciones en las que el rendimiento observado no es predecido de forma preciesa por otros modelos. Se proporciona un análisis técnico detallado de los efectos observados como base esencial para futuros trabajos de modelado. Por último, se diseña un modelo de rendimiento que captura estos efectos y se valida el modelo utilizando mediciones experimentales.
+
+Un un modelo analítico $M/M/1$ con políticas\emph{first in - first out} y prioridad de colas fue diseñado y desarrolloado en \cite{alwakeel} para evaluar el rendimiento de \emph{middleware} orientado a mensajes y llamados a procedimientos remotos (RPC por sus siglas en inglés). Los modelos comparan el rendimiento de \emph{middleware} orientado a mensajes y RPC con prioridad de colas y analizan el \emph{throughput} de estos paradigmas de comunicación. Varios parámetros de entrada son usados para determinar la configuración óptima para lograr el máximo rendimiento. Los resultados prueban que al utilizar \emph{middleware} orientado a mensajes con prioridad de cola, el \emph{throughput} del sistema puede ser mejorado. 
+
 
 
 %\chapter{Objetivos}
@@ -676,6 +686,8 @@ DOI: \href{https://ezproxy.itcr.ac.cr:2878/10.1109/WICSA-ECSA.212.11}{10.1109/WI
 \bibitem{cloudscale} Gunnar Brataas, Erlend Stav, Sebastian Lehrig, Steffen Becker, Goran Kopčak, and Darko Huljenic. 2013. \emph{CloudScale: scalability management for cloud systems}. In Proceedings of the 4th ACM/SPEC International Conference on Performance Engineering (ICPE '13), Seetharami Seelam (Ed.). ACM, New York, NY, USA, 335-338. 2013. DOI: \url{https://ezproxy.itcr.ac.cr:2878/10.1145/2479871.2479920}
 
 \bibitem{spe-ed} Connie U Smith and Lloyd G Williams. \emph{Performance solutions: a practical guide to creating responsive, scalable software}. Addison Wesley Longman Publishing Co., Inc., Redwood City, CA, USA, 2002.
+
+\bibitem{woodside-et-al-2} Murray Woodside, Dorin Petriu, and Khalid Siddiqui. \emph{Performance-related Completions for Software Specifications}. In Proceedings of the 24th International Conference on Software Engineering, pages 22–32, New York, NY, USA, 2002.
 
 \end{thebibliography}
 
