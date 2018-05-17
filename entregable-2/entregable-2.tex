@@ -160,7 +160,7 @@
         \vspace*{1cm}
         
         \Large
-        \textbf{Modelado y Simulación de Colas de Mensajes Distribuidas (\emph{Message Oriented Middleware})\\ Revisión de Literatura}
+        \textbf{Modelado y Simulación de Colas de Mensajes Distribuidas (\emph{Message Oriented Middleware})\\ Entregable \#2}
         
         \vspace{1.5cm}
         
@@ -182,7 +182,7 @@
         
         \vfill
         
-        15 de Marzo del 2018
+        3 de Mayo del 2018
         
         
         
@@ -216,11 +216,79 @@
 
 %\addcontentsline{toc}{chapter}{Glosario}
 %\printglossaries
-
-
-\chapter*{Introducción}
 \pagenumbering{arabic}
-\addcontentsline{toc}{chapter}{Introducción}
+\chapter{Informe de avance}
+
+% avance de actividades: para la lista de actividades en el cronograma indicar porcentaje de avance y descripción de estado actual (p.ej. terminada, en curso, pendiente, atrasada).
+\section{Avance de actividades}
+Las siguientes son las actividades propuestas en el cronograma de trabajo para este entregable:
+\begin{enumerate}
+    \item \textbf{Revisión de Literatura, 100\% - Terminada} De acuerdo a la recomendación del profesor, se dedicó un apartado a recolectar y trabajos relacionados con el tema propuesto.
+    \begin{enumerate}
+        \item Selección de literatura relevante: Terminada
+        \item Preparación del documento: Terminado. Ver Sección \ref{sec:revision-literatura}
+    \end{enumerate}
+    \item \textbf{Adaptación de aplicación de referencia, 100\% - Terminada}. Luego de evaluar literatura relevante sobre el tema propuesto y valorar y probar aplicaciones que fueron utilizadas en varios artículos, se decidió optar por la aplicación \emph{CloudStore}\footnote{\url{https://github.com/CloudScale-Project/CloudStore}}. Esta es una aplicación que se realizó con el fin de demostrar las herramientas del \emph{CloudScale Method}\footnote{\url{http://www.cloudscale-project.eu/}}. Para más detalles, ver Sección \ref{ch:aplicacion-referencia}
+    \begin{enumerate}
+        \item Selección de aplicación de referencia: Terminada
+        \item Adaptar aplicación para que utilice MOM: Terminada
+        \item Ejecutar pruebas de carga/rendimiento: se realizaron pruebas iniciales sobre la aplicación de referencia con el fin de explorar su comportamiento. Si bien estas mediciones representan una referencia inicial, se considera que en el trabajo futuro de modelado se podrían generar otras mediciones o bien refinamientos de las ya existentes. Es por esto que se considera que las mediciones en su fase exploratoria se consideran cubiertas pero al mismo tiempo se continuará trabajando en las mismas en un futuro próximo.
+    \end{enumerate}
+\end{enumerate}
+
+
+
+
+
+% cumplimiento de objetivos: indicar nivel de cumplimiento de cada objetivo específico planteado originalmente.
+\section{Cumplimiento de objetivos}
+\begin{enumerate}
+    \item \textbf{Objetivo 1:} Revisión del estado del arte de trabajos relacionados con enfoques de predicción y medición del rendimiento en sistemas de software basados en componentes y en \emph{middleware} orientado a mensajes.
+    \begin{enumerate}
+        \item[$\rightarrow$] Este objetivo se ha completado. Para más detalles, ver Seccion \ref{sec:revision-literatura}.
+    \end{enumerate}
+    \item \textbf{Objetivo 2:} Adaptar un sistema de software de referencia para el cual ya exista un modelo de rendimiento y simulaciones para que se integre y comunique con \emph{middleware} orientado a mensajes.
+    \begin{enumerate}
+        \item[$\rightarrow$] Este objetivo se ha completado. Para más detalles, ver Sección \ref{ch:aplicacion-referencia}.
+    \end{enumerate}
+    \item \textbf{Objetivo 3:} Comparar la solución implementada bajo diferentes cargas de trabajo
+    \begin{enumerate}
+        \item[$\rightarrow$] Se hicieron mediciones iniciales en el rendimiento de la aplicación en su estado original y en la versión adaptada. Ver Sección \ref{ch:mediciones-iniciales}
+    \end{enumerate}
+\end{enumerate}
+
+
+
+% entregables: para cada entregable en la propuesta indicar su estado actual y nivel de avance (0-100%).
+\section{Entregables}
+\begin{enumerate}
+    \item[] \textbf{Entregable 1.} Revisión de literatura: 100\%.  
+    \item[] \textbf{Entregable 2.} Aplicación adaptada para que soporte comunicación basada en mensajes: 100\%
+    \item[] \textbf{Entregable 3.} Medición de rendimiento en aplicación adaptada: 100\% 
+\end{enumerate}
+
+
+
+%\chapter{Propuesta de contenidos de informe final}
+%Propuesta de contenidos de informe final: propuesta de la tabla de contenidos del informe final del curso.  En este curso, el informe final va a tener formato de artículo científico, por lo se deben indicar los títulos de las secciones que contendría el artículo. Como sugerencia, pueden incluir las siguientes secciones:
+%- Resumen.
+%- Introducción.
+%- Trabajos relacionados.
+%- (Título relacionado con objetivo específico 1).
+%- (Título relacionado con objetivo específico 2).
+%- 	…
+%- (Título relacionado con objetivo específico N).
+%- Conclusiones y trabajo futuro.
+%- Referencias bibliográficas.
+
+
+\chapter{Entregables}
+
+\section{Revisión de la Literatura} \label{sec:revision-literatura}
+
+\subsection{Introducción}
+%\pagenumbering{arabic}
+%\addcontentsline{toc}{chapter}{Introducción}
 Los métodos de predicción de rendimiento basados en modelos permiten a los arquitectos de software evaluar el rendimiento de los sistemas de software durante las primeras etapas de desarrollo. Estos modelos de predicción se centran en los aspectos relevantes de la arquitectura y de la lógica del negocio, dejando de lado detalles de la infraestructura subyacente. Sin embargo, estos detalles son esenciales para generar predicciones de rendimiento que sean precisas.
 
 Para los ingenieros, es una práctica común simular el modelo de un artefacto antes de construirlo. Modelos de diseños de autos, circuitos electrónicos, puentes, entre otros, son simulados para entender el impacto de decisiones de diseño en varias atributos de calidad de interés como seguridad, consumo de energía o estabilidad. La habilidad de predecir las propiedades de un artefacto en base a su diseño sin necesidad de construirlo, es una de las características centrales de una disciplina de ingeniería. A partir de esta visión de lo que se considera una disciplina de ingeniería establecida se podría decir entonces que la ingeniería de software es apenas una disciplina de ingeniería\cite{palladio-blue-book}. Esto porque frecuentemente los ingenieros de software carecen del entendimiento del impacto de decisiones de diseño en atributos de calidad como rendimiento o confiabilidad. Como resultado, se intenta probar la calidad del software mediante costosos ciclos de prueba y error.
@@ -256,12 +324,10 @@ En este trabajo se propone la construcción de un modelo de rendimiento para un 
 
 %\chapter{Marco Teórico}
 
-\chapter{Revisión de la Literatura}
-
-\section{Estrategia}
+\subsection{Estrategia}
 Esta sección presenta la estrategia emprendida para cubrir el cuerpo de conocimiento relacionado con ingeniería de rendimiento de software La estrategia general se basó en un proceso iterativo de identificación y lectura de artículos, luego identificar y leer artículos relevantes a partir de referencias y citas bibliográficas.
 
-\section{Preguntas de Investigación}
+\subsection{Preguntas de Investigación}
 Las preguntas de investigación seleccionadas para conducir la revisión de la literatura fueron:
 \begin{enumerate}
     \item[\textbf{PI1}] ¿Cuáles enfoques de predicción y medición del rendimiento en sistemas de software basados en componente se han propuesto?
@@ -270,7 +336,7 @@ Las preguntas de investigación seleccionadas para conducir la revisión de la l
     \item[\textbf{PI4}] ¿Qué herramientas hay disponibles para modelaje de rendimiento de software?
 \end{enumerate}
 
-\section{Estrategia de Búsqueda}
+\subsection{Estrategia de Búsqueda}
 Con el fin de identificar el primer conjunto de artículos relevantes, se hizo una revisión preliminar con Google Scholar\footnote{\url{http://scholar.google.com}} porque con este motor de búsqueda se puede abarcar una amplio número de artículos y actas académicas de diferentes fuentes. El criterio de búsqueda se basó en búsquedas de palabras derivadas del tema de investigación y las preguntas de investigación. Se incluyeron palabras como ``component-based software'', ``software performance engineering'', ``software performance modeling'', ``middleware oriented messages'', ``modeling middleware oriented messages'', ``broker modeling'', ``palladio component model'', ``modeling software architecture''
 
 La búsqueda de la literatura se realizó en Marzo del 2018 usando las siguientes bases de datos electrónicas:
@@ -281,7 +347,7 @@ La búsqueda de la literatura se realizó en Marzo del 2018 usando las siguiente
     \item Google Scholar
 \end{itemize}
 
-\section{Criterio de Selección}
+\subsection{Criterio de Selección}
 Se aplicó el siguiente criterio de inclusión de artículos para esta revisión:
 \begin{itemize}
     \item Estudios que dan a conocer enfoques de análisis de rendimiento de software basado en componentes
@@ -297,10 +363,16 @@ Los criterios de exclusión de artículos fueron los siguiente:
     \item Artículos publicados hace más de 15 años atrás (rango aceptable 2003-2018).
 \end{itemize}
 
-\section{Resultado de la Revisión}
-A continuación se presenta...
+\subsection{Resultado de la Revisión}
+La literatura consultada se podría llegar a dividir en dos grupos, estudios sobre:
+\begin{itemize} 
+    \item Ingeniería de rendimiento de software: enfoques, modelado de ingeniería de rendimiento, herramientas y retos de investigación
+    \item \emph{Middleware} orientado a mensajes: características y modelado del rendimiento de estos sistemas.
+\end{itemize}
 
-\chapter{Ingeniería de rendimiento de software (\emph{Software Performance Engineering})}
+A continuación se presenta el desarrollo de los temas seleccionados.
+
+\subsection{Ingeniería de rendimiento de software (\emph{Software Performance Engineering})}
 %La ingeniería de software tiene como objetivo tratar los retos de el proceso de desarrollo de software por mediante una disciplina de ingeniería. Una característica de esto es la disponibilidad de un catálogo de métodos y prácticas además de guías para la selección sistemática de estas prácticas. El objetivo ofrecer calidad, costo y plazos de entrega predecibles para el producto de ingeniería.
 
 Una definición comúnmente utilizada para definir ingeniería de rendimiento de software es la que que brinda Woodside\cite{woodside-et-al}: ``Ingeniería de rendimiento de software (\emph{Software Performance Engineering} - SPE) representa toda la colección de actividades de ingeniería de software y análisis relacionados utilizadas a través del ciclo de desarrollo de software que están dirigidos a cumplir con los requisitos de rendimiento''. 
@@ -310,12 +382,12 @@ De acuerdo con este mismo autor, los enfoques para ingeniería de rendimiento pu
 Se han propuesto otras clasificaciones de enfoques para SPE pero, con respecto a la evaluación de sistemas basados en componentes, en \cite{performance-model-survey} se deja clasificación a un lado debido a que se argumenta que la mayoría de enfoques de modelaje toman alguna medición como entrada y a la mayoría de los métodos de medición los acompaña algún modelo.
 
 
-\section{Ingeniería de rendimiento basada en mediciones}
+\subsubsection{Ingeniería de rendimiento basada en mediciones}
 Los enfoques basados en mediciones prevalencen en la industria\cite{thijmen-thesis} y son típicamente utilizados para verificación(¿el sistema cumple con su requisito de rendimiento?) o para localizar y arreglar \emph{hot-spots} (cuáles son las partes que tienen peor rendimiento en el sistema). La medición de rendimiento se remota al inicio de la era de la computación, lo que ha generado una amplia gama de herramientas como generadores de carga y monitores para crear cargas de trabajo ficticias y llevar a cabo la medición de un sistema respectivamente.
 
 Las pruebas de rendimiento aplican técnicas basadas en medición y usualmente esto es hecho luego de las pruebas funcionales o de carga. Las pruebas de carga verifican el funcionamiento de un sistema bajo cargas de trabajo pesadas, mientras que las pruebas de rendimiento son usadas para obtener datos cuantitativos de características de rendimiento, como tiempos de respuesta, \emph{throughput} y utilización de hardware para una configuración de un sistema bajo una carga de trabajo definida.
 
-\section{Ingeniería de rendimiento a través de modelado} 
+\subsection{Ingeniería de rendimiento a través de modelado} 
 La importancia del modelado del rendimiento está motivada por el riesgo de problemas graves de rendimiento\cite{palladion-screencast} y la creciente complejidad de sistemas modernos, lo que hace difícil abordar los problemas de rendimiento al nivel de código. Cambios considerables en el diseño o en las arquitecturas pueden ser requeridos para mitigar los problemas de rendimiento. Por esta razón, la comunidad de investigación de modelado de rendimiento intenta luchar contra el enfoque de ``arreglar las cosas luego'' durante el proceso de desarrollo. Con la aplicación de modelo del rendimiento de software se busca encontrar problemas de rendimiento y alternativas de diseño de manera temprana en el ciclo de desarrollo, evitando así el costo y la complejidad de un rediseño o cambios en los requerimientos.
 
 Las herramientas de modelado de rendimiento ayudar a predecir la conducta del sistema antes que este sea construido o bien, evaluar el resultado de un cambio antes de su implementación. El modelado del rendimiento puede ser usado como una herramienta de alerta temprana durante todo el ciclo de desarrollo con mayor precisión y modelos cada vez más detallados a lo largo del proceso. Al inicio del desarrollo un modelo no puede ser validado contra un sistema real, por esto el modelo representa el conocimiento incierto del diseñador. Como consecuencia de esto el modelo hace suposiciones que no necesariamente se van a dar en el sistema real, pero que van a ser útiles para obtener una abstracción del comportamiento del sistema. En estas fases iniciales, la validación se obtiene mediante el uso del modelo, y existe el riego de conclusiones erróneas debido a su precisión limitada. Luego, el modelo puede ser validado contra mediciones en el sistema real (o parte de este) o prototypos y esto hace que la precisión del modelo se incremente.
@@ -325,19 +397,19 @@ En \cite{jit-et-al} se sugiere que los métodos actuales tienen que superar un n
 Técnicas comúnes de modelado incluyen redes de colas, extensiones de estas como redes de colas en capas y varios tipos de redes de Petri y procesos de álgebra estocástica.
 
 
-\section{Modelado de Rendimiento}
+\subsection{Modelado de Rendimiento}
 En SPE, la creación y evaluación de modelos de rendimiento es un concepto clave para evaluar cuantitativamente el rendimiento del diseño de un sistema y predecir el rendimiento de otras alternativas de diseño. Un modelo de rendimiento captura el comportamiento relevante al rendimiento de un sistema para identificar el efecto de cambios en la configuración o en la carga de trabajo en el rendimiento. Permite predecir los efectos de tales cambios sin necesidad de implementarlo y ponerlo en producción, que podrían ser no solamente tareas costosas sino también un desperdicio en el caso que un el hardware con el que se cuenta pruebe ser insuficiente para soportar la intensidad de la carga de trabajo.\cite{noorshams}
 
 La forma del modelo de rendimiento puede comprender desde funciones matemáticas a formalismos de modelado estructural y modelos de simulación. Estos modelos varían en sus características clave, por ejemplo, las suposiciones de modelado de los formalismos, el esfuerzo de modelado requerido y el nivel de abstracción.
 
 En cuanto a técnicas de simulación, a pesar que estas permiten un estudio más detallado de los sistemas que modelos analíticos, la construcción de un modelo de simulación requiere de conocimiento detallado tanto de desarrollo de software como de estadística\cite{thijmen-thesis}. Los modelos de simulación también requieren usualmente de mayor tiempo de desarrollo que los modelos analíticos. En \cite{woodside-et-al} se menciona que ``la construcción de un modelo de simulación es caro, algunas veces comparable con el desarrollo de un sistema, y, los modelos de simulación detallados puede tardar casi tanto en ejecutarse como el sistema.
 
-\subsection{Enfoques de ingeniería de rendimiento para software basado en componentes propuestos}
+\subsubsection{Enfoques de ingeniería de rendimiento para software basado en componentes propuestos}
 La encuesta llevada a cabo en \cite{performance-model-survey} proporciona una clasificación de enfoques de medición y predicción de rendimiento para sistemas de software basados en componentes. Otra clasificación es la que se expone en \cite{balsamo-et-al} donde se presenta una revisión de métodos de predicción de rendimiento basado en modelos para sistemas en general, pero no analiza los requerimientos propios para sistemas basados en componentes. 
 
 De acuerdo con \cite{performance-model-survey} durante los últimos diez años, los investigadores han propuesto muchos enfoques para evaluar el rendimiento (tiempos de respuesta, \emph{throughput}, utlización de recursos) de sistemas de software basados en componentes. Estos enfoques tratan con predicción de rendimiento y medición del rendimiento. Los primeros analizan el rendimiento esperado de un diseño de software basado en componentes para evitar problemas de rendimiento en la implementación del sistema, lo que podría llevar a costos substanciales para rediseñar la arquitectura. Los otros analizan el rendimiento observable de sistemas de software basados en componentes implementados para entender sus propiedades, determinar su capacidad máxima, identificar componentes críticos y para remover cuellos de botella.
 
-\subsubsection{Métodos de evaluación de rendimiento}
+\paragraph{Métodos de evaluación de rendimiento}
 Los enfoques se agruparon en dos grandes grupos: enfoques principales que proporcionan procesos de evaluación de rendimiento completo y enfoques suplementarios que se centran en aspectos específicos como medición de componentes individuales o modelaje de las propiedades de rendimiento de los conectores de un componente.
 
 \paragraph{Enfoques principales}
@@ -394,7 +466,7 @@ Los enfoques se agruparon en dos grandes grupos: enfoques principales que propor
 
 Recientemente varios enfoques de predicción basados en meta-modelos propietarios han sido propuestos para optimización de diseño de arquitecturas, modelado de calidad de servicio y escalabilidad. PerOpteryx\cite{peropteryx} es un enfoque de optimización de diseño de arquitecturas que manipula modelos especificados en \emph{Palladio Component Model} (PCM)\cite{palladio-blue-book} y utiliza el algoritmo evolucionario multi-objetivo NSGA-II. Para análisis de rendimiento utiliza redes de colas en capas. \emph{Descartes Modeling Language}\cite{descartesml} es un lenguaje de modelado de arquitecturas para modelar calidad de servicio y aspectos relacionados con la gestión de recursos de los sistemas, las infraestructuras y los servicios de tecnología de información dinámicos modernos. \emph{CloudScale}\footnote{\url{http://www.cloudscale-project.eu/}}\cite{cloudscale} es un enfoque de diseño y evolución de aplicaciones y servicios escalables en la nube. En CloudScale se identifica y gradualmente se resuelven problemas de escalabilidad en aplicaciones existentes y también permite el modelado de alternativas de diseño y el análisis del efecto de la escalabilidad en el costo. Cabe mencionar que estos últimos enfoques han sido influenciado en gran medida por el trabajo llevado a cabo en PCM.
 
-\section{Modelado de Arquitecturas de Software con el \emph{Palladio Component Model (PCM)}}
+\subsection{Modelado de Arquitecturas de Software con el \emph{Palladio Component Model (PCM)}}
 El \emph{Palladio Component Model} es un enfoque de modelaje para arquitecturas de software basados en componentes que permite predicción de rendimiento basada en modelos. PCM contribuye el proceso de desarrollo de ingeniería basado en componentes y proporciona conceptos de modelaje para describir componentes de software, arquitectura de software, despliegue (\emph{deployment}) de componentes y perfiles de uso de sistemas de software basados en componentes en diferentes submodelos (Figura \ref{fig:pcm-instance}). 
 
 \begin{figure}[h]
@@ -413,12 +485,12 @@ El \emph{Palladio Component Model} es un enfoque de modelaje para arquitecturas 
 
 Un modelo PCM abstrae un sistema de software a nivel de arquitectura y se anota con consumos de recursos que fueron medidos previamente u otros que son estimados. El modelo puede entonces ser usado en transformaciones de modelo-a-modelo o modelo-a-texto a un modelo de análisis en particular (redes de colas o simulación de código) que puede ser analíticamente resuelto o simulado para obtener resultados sobre el rendimiento y predicciones del sistema modelado. Los resultados del rendimiento y las predicciones pueden ser utilizadas como retroalimentación para evaluar y mejorar el diseño inicial, permitiendo así una evaluación de calidad de los sistemas de software en base a un modelo\cite{noorshams}. 
 
-\section{Retos de investigación asociados a Ingeniería de rendimiento}
+\subsection{Retos de investigación asociados a Ingeniería de rendimiento}
 Informes recientes como \cite{microservices-challenges} y \cite{performance-devops} señalan que los principales retos en investigación de ingeniería de rendimiento en la actualidad están asociados con generación de modelos a partir de código, integración de la evaluación de rendimiento en el ciclo de desarrollo y modelado de rendimiento de sistemas en la nube.
 
 Con respecto a integración en ciclos de desarrollo de software y principalmente en aquellos basados en DevOps, una tendencia hacia una estrecha integración entre equipos desarrollo y operaciones, en \cite{performance-devops} se destaca que la necesidad de tal integración está orientada por el requerimiento de adaptar aplicaciones empresariales a los cambios del ambiente del negocio continuamente. El rendimiento describe las propiedades del sistema con respecto a su ejecución y uso de recursos. Métricas comunes son tiempo de respuesta, \emph{throughput} y la utilización de los recursos. Los objetivos de rendimiento para aplicaciones empresariales son típicamente definidos al establecer cotas superiores/inferiores para estas métricas y transacciones de negocio específicas. 
 
-\subsection{Actividades de administración del rendimiento}
+\subsubsection{Actividades de administración del rendimiento}
 Evaluación del rendimiento basado en modelos:
 \begin{itemize}
     \item La representación de la memoria principal y del recolector de basura aún no están explícitamente integrados ni considerados en los modelos de rendimiento
@@ -431,7 +503,7 @@ Extracción de modelos de rendimiento y de cargas de trabajo:
     \item La extracción de capacidades de rendimiento se basa en una combinación de software y los recursos de hardware en los que se implementa. Este enfoque combinado es compatible con la precisión de la predicción, pero está menos calificado con respecto a la portabilidad de los conocimientos a otras plataformas. Una dirección de investigación futura podría ser extraer modelos separados (por ejemplo, \emph{middleware} y modelos de aplicación separados). 
 \end{itemize}
 
-\subsection{Modelos de rendimiento durante etapas diseño }
+\subsubsection{Modelos de rendimiento durante etapas diseño }
 \begin{itemize}
     \item Los retos de utilizar modelos de rendimiento en etapas tempranas de desarrollo es que usualmente es difícil validar la precisión de los modelos hasta que un sistema en ejecución exista. Las predicciones de rendimiento basadas en suposiciones, entrevistas y pruebas previas pueden ser también imprecisas y por tanto las decisiones que se hagan a partir de estas predicciones.
 \end{itemize}
@@ -506,7 +578,7 @@ Al final, se seleccionarion seis herramientas que se consideraron suficientement
 
 
 
-\chapter{\emph{Middleware} Orientado a Mensajes}
+\subsection{\emph{Middleware} Orientado a Mensajes} \label{sec:mom}
 
 Junto con el crecimiento de Internet, los sistemas distribuidos han crecido a una escala masiva. Hoy en día, estos sistemas puede involucrar a miles de entidades distruidas globalmente. Esto ha motivado el estudio de modelos de comunicación y sistemas flexibles, que puedan reflejar la naturaleza dinámica y desacoplada de las aplicaciones.
 
@@ -538,12 +610,12 @@ La arquitecturas de MOM de hoy en día varían en su implementación. Van desde 
 
 Los sistemas de mensajería están compuestos por clientes de mensajería (\emph{messaging clients}) y algún tipo de servidor MOM. Los clientes envían mensajes al servidor de mensajería el cual distribuye estos mensajes a otros clientes. El cliente es una aplicación de negocio o componente que es usa una API de mensajería.
 
-\section{Modelos de mensajería}
+\subsection{Modelos de mensajería}
 
-\subsection{Punto-a-Punto}
+\subsubsection{Punto-a-Punto}
 Este modelo de mensajería permite a los clientes enviar y recibir mensajes de forma síncrona como asíncrona a través de canales virtuales conocidos como colas. En este modelo a los productores de mensajes se les llama emisores (\emph{senders}) y a los consumidores se les conoce como receptores (\emph{receivers}). El modelo punto-a-punto ha sido tradicionalmente un modelo basado en \emph{polling}, en donde los mensajes son solicitados desde la cola en lugar de ser puestos en el cliente automáticamente. Los mensajes que se envían a una cola son recibidos por uno y solo un \emph{receiver}, aunque pueden haber otros \emph{receivers} escuchando en la cola por el mismo mensaje. Este es un modelo que promueve acoplamiento esto porque generalmente el \emph{sender} conocer cómo el mensaje va a ser utilizado y quién lo va a recibir. 
 
-\subsection{\emph{Publish-and-Subscribe}}
+\subsubsection{\emph{Publish-and-Subscribe}}
 En este modelo, los mensajes son publicados en un canal virtual llamado tópico. Los productores de mensajes son conocidos como \emph{publishers} y a los consumidores se les llama \emph{subscribers}. Los mensajes pueden ser recibidios por múltiples \emph{subscribers}, a diferencia del modelo punto-a-punto. Cada \emph{subscriber} recibe una copia de cada mensaje. Este es un modelo basado en \emph{push} en donde los mensajes son automáticamente transmitidos a los consumidores sin que estos tengan que solicitarlos o revisar la cola por nuevos mensajes. 
 
 Este modelo tiende a ser menos acoplado que el modelo punto-a-punto debido a que el publicador del mensaje generalmente no está conciente de cuántos subscritores hay y lo qué van a hacer estos con el mensaje.
@@ -557,7 +629,7 @@ Este modelo tiende a ser menos acoplado que el modelo punto-a-punto debido a que
 \end{figure}
 
 
-\section{Enfoques de ingeniería de rendimiento para \emph{middleware} orientado a mensajes}
+\subsection{Enfoques de ingeniería de rendimiento para \emph{middleware} orientado a mensajes}
 En \cite{happe-et-al} se extiende el \emph{Palladio Component Model} con \emph{performance completions} para \emph{middleware} orientado a mensajes. \emph{Performance completions}\cite{woodside-et-al-2} proporcionan el concepto general de incluir detalles de bajo nivel de ambientes de ejecución en modelos de rendimiento. Con la extensión del modelo, los arquitectos de software puede especificar y configurar comunicación basada en mensajes utilizando un lenguaje basado en patrones de mensajería.
 
 La influencia en el rendimiento de \emph{middleware} orientado a mensajes fue estudiada en \cite{liu-gordon}. Se consideró el \emph{middleware} como un factor determinante del rendimiento en sistemas distribuidos y se hizo un mayor enfoque en su modelado y evaluación. Se propuso un enfoque basado en medición en combinación con modelos matemáticos para predecir el rendimiento de aplicaciones J2EE\footnote{\emph{Java Enterprise Edition}}. Las mediciones proporcionan los datos necesarios para calcular los valores de entrada del modelo de red de cola. El cálculo refleja el comportamiento de la aplicación en particular. La red de cola se resuelve para derivar métricas de rendimiento tales como tiempos de respuesta y \emph{throughput} de la aplicación. 
@@ -567,6 +639,285 @@ La investigación llevada a cabo en \cite{chew} presenta un modelo abstracto de 
 En \cite{martince-et-al} se construyen modelos de rendimiento para \emph{middleware} que implementa el estándar \emph{Java Messaging Service} (JMS). Se utiliza análisis de código y mediciones experimentales de implementaciones de JMS populares para mostrar situaciones en las que el rendimiento observado no es predecido de forma preciesa por otros modelos. Se proporciona un análisis técnico detallado de los efectos observados como base esencial para futuros trabajos de modelado. Por último, se diseña un modelo de rendimiento que captura estos efectos y se valida el modelo utilizando mediciones experimentales.
 
 Un un modelo analítico $M/M/1$ con políticas\emph{first in - first out} y prioridad de colas fue diseñado y desarrolloado en \cite{alwakeel} para evaluar el rendimiento de \emph{middleware} orientado a mensajes y llamados a procedimientos remotos (RPC por sus siglas en inglés). Los modelos comparan el rendimiento de \emph{middleware} orientado a mensajes y RPC con prioridad de colas y analizan el \emph{throughput} de estos paradigmas de comunicación. Varios parámetros de entrada son usados para determinar la configuración óptima para lograr el máximo rendimiento. Los resultados prueban que al utilizar \emph{middleware} orientado a mensajes con prioridad de cola, el \emph{throughput} del sistema puede ser mejorado. 
+
+\subsection{Posicionamiento de la investigación con respecto a la literatura consultada}
+A partir de lo recolectado se pudo conocer que mucho del esfuerzo que se ha hecho en este campo de estudio ha tenido baja aceptación en la industria pero que, por otro lado, compañías y sistemas que han utilizado estos métodos de modelaje y evaluación han obtenido buenos resultados. Queda claro también que la aplicación de estos modelos permiten entender la influencia que tienen tanto de los diferentes componentes de software como el impacto que pudiera generar en ellos durante la ejecución de un sistema.
+
+También se pudo reconocer que existe necesidad en aplicar enfoques de modelado del rendimiento en el desarrollo de sistemas modernos. No existen enfoques de modelado de rendimiento para microservicios que hoy en día es un estilo de arquitectura de software sumamente popular. Es por esto que se considera que la realización de estudios exploratorios para determinar la influencia en el rendimiento que tienen diferentes componentes, librerías y productos de software sobre un sistema van a brindar nuevo conocimiento para dar a conocer factores que favoren o desfavorecen el uso de los mismos y, además de esto, podría representar un marco de referencia inicial por medio del cual se pueda evaluar la adopción de estas tecnologías \emph{a priori}. 
+
+Por último, durante la búsqueda de artículos se encontraron muy pocos de ellos provenientes de universidades de latinoamérica. Esto representa, a juicio del autor, una oportunidad para estudiar, probar y generar conocimiento sobre estos temas.  
+
+\newpage
+\section{Aplicación de referencia} \label{ch:aplicacion-referencia}
+
+Durante la elaboración de la revisión de la literatura, se procedió a estudiar algunas de las aplicaciones que se utilizaron en la realización de los respectivos estudios con el fin de tomar alguno de estos como referencia para la investigación propuesta. Para seleccionar una aplicación que se adecue al tema propuesto, se establecieron los siguientes criterios:
+\begin{enumerate}
+    \item Aplicación de código libre
+    \item Que cuente con modelos de rendimiento hechos en \emph{Palladio Workbench}
+    \item Desarrollada en un lenguaje de programación y con herramientas de actualidad
+    \item Que continue siendo mantenida y mejorada por sus autores
+\end{enumerate}
+
+
+Del listado anterior, quizás el criterio más restrictivo es el \#2 pero al mismo tiempo se considera el de mayor importancia debido a que en esta investigación se están dando los primeros pasos con el modelado de arquitecturas utilizando Palladio y no se deseaba empezar desde cero sino más bien tomar un modelo de referencia e ir haciendo pequeñas modificaciones y probar los resultados.
+
+Durante la exploración de aplicaciones candidatas se pudo constatar que muchas de ellas fueron creadas para probar los objetivos de un estudio en particular y luego cayeron en desuso. A pesar que varias de ella se pueden acceder fácilmente por medio de Internet, carecen de mantenimiento y documentación y esto causa que sean difíciles de evaluar. Una de las motivaciones principales detrás de la elección de método Palladio para modelado de arquitecturas de software, es que este hay sido un proyecto que cuenta con un nivel de madurez importante y está en constante mantenimiento y mejora por parte de su equipo de desarrollo. Aún así se pudo encontrar aplicaciones que utilizaron modelos de Palladio pero se encontraban en ``abandono''. 
+
+\emph{CloudScale}\cite{cloudscale-2}, un proyecto generado a partir de la experiencia de Palladio, es un método que permite identificar y gradualmente resolver problemas de escalabilidad en aplicaciones existentes. \emph{CloudScale} también permite modelar alternativas de diseño y el análisis de su efecto en la escalibilidad y costo\cite{cloudscale}. El sitio Web de \emph{CloudScale}, \url{http://www.cloudscale-project.eu/} contiene publicaciones e información general acerca de este método, así también como del \emph{CloudScale Environment}, un entorno de desarrollo integrado creado para modelaje y análisis. 
+
+Con el fin de validar \emph{CloudScale}, varias aplicaciones fueron creadas. Una ventaja de las aplicaciones que utlizan \emph{CloudScale} es que deben de tener un modelo basado en Palladio para su posterior procesamiento. Otra de las cosas que hicieron que las aplicaciones creadas para esta metología resultaran atractivas para esta investigación, es que el proyecto \emph{CloudScale} es reciente por lo que estas aplicaciones no se consideran como ``viejas'' y se les da mantenimiento. 
+
+Una de estas aplicaciones que se crearon para probar esta metolodología es \emph{CloudStore}, una aplicación Web de código libre que emula una tienda (\emph{e-commerce}) de libros en línea. Su objetivo principal es ser utilizada para el análisis de las características de los sistemas en la nube como escalabilidad, capacidad, elasticidad y eficiencia. Fue desarrollada como la aplicación de muestra para validar las herramientas de \emph{CloudScale}.
+
+La aplicación fue desarrollada en Java utilizando la librerías de \emph{Spring} y se ejecuta en un servidor Tomcat. Utiliza una base de datos MySQL. Para mayor información sobre \emph{CloudStore}, se puede visitar su repositorio en GitHub: \url{https://github.com/CloudScale-Project/CloudStore}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm]{conceptual-cloudstore-architecture}
+  \caption{\small{Arquitectura Conceptual de CloudStore. Tomado de \cite{happe-et-al}}}
+  \label{fig:cloudstore-conceptual}
+\end{figure}
+
+En la figura \ref{fig:cloudstore-conceptual} se muestra la arquitectura conceptual de \emph{CloudStore}. Tiene un diseño simple: una aplicación Java que se ejecuta en un servidor Web y que realiza consultas a una base de datos MySQL. Para llevar a cabo los pagos, la aplicación se comunica con un \emph{gateway} para pagos, un servicio Web publicado en un servidor externo al del \emph{CloudStore} que simula el tiempo de respuesta de podría tomar realizar un pago.
+
+Una característica de \emph{CloudStore} particularmente atractiva para este estudio es precisamente el \emph{gateway} de pagos. La interacción entre \emph{CloudStore} y este \emph{gateway} de pagos representa un clásico escenario de integración de sistemas. En su versión original, \emph{CloudStore} realiza llamadas a este \emph{gateway} de pagos de manera \emph{ad hoc} y es aquí en donde la introducción de comunicación basada en mensajes puede ser una mejor opción al actual debido que:
+\begin{itemize}
+    \item Permite que \emph{CloudStore} se desacople del \emph{gateway} de pagos: la aplicación no necesita saber información específica de este \emph{gateway} ni la forma en cómo debe interactuar con él, esto se lo delega a un tercero. 
+    \item La comunicación basada en mensajes puede garantizar el envío de peticiones al gateway de pagos.
+\end{itemize}
+
+
+\subsection{Adaptación de \emph{CloudStore}}
+Con el fin de adaptar \emph{CloudStore} para que soporte comunicación basada en mensajes cuando se ejecute un pago, se propone lo siguiente:
+\begin{enumerate}
+    \item Selección de una solución para comunicación basada en mensajes
+    \item Selección de librería(s) de código para realizar comunicación entre \emph{CloudStore} y la solución seleccionada en el punto anterior
+    \item Implementar un consumidor de mensajes de petición de pago: una aplicación que estará monitoreando(\emph{pooling}) y procesando mensajes provenientes de la solución seleccionada en el punto \#1 y que los entregará al \emph{gateway} de pagos. Adicionalmente esta aplicación comunicará al \emph{CloudStore} el estado del procesamiento del pago
+    \item Reemplazar el código existente que se dedica a realizar el pago contra el \emph{gateway} de pagos por nuevo código que se comunicará con la solución de mensajería
+\end{enumerate}
+
+Para el punto \#1, se seleccionó ActiveMQ\footnote{\url{http://activemq.apache.org/}}, el servidor más popular de mensajería de código libre.
+ 
+Al estar utlizando ActiveMQ, el cual es un servidor que implementa el estándar \emph{Java Messaging Service}, se va a utilizar la librería \texttt{javax.jms} con versión 1.1.
+
+La aplicación consumidora/procesadora de mensajes será una aplicación Java que se va a ejecutar como un servicio. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=18cm]{cloudstore-jms}
+  \caption{\small{Arquitectura Conceptual de CloudStore utilizando comunicación basada en mensajería}}
+  \label{fig:cloudstore-jms}
+\end{figure}
+
+La arquitectura adaptada de \emph{CloudStore} para que utilice comunicación basada en mensajes se muestra en la figura \ref{fig:cloudstore-jms}. Ahora, en lugar de realizar una llamada \emph{ad hoc} al \emph{gateway} de pagos, la aplicación se comunica con una cola de mensajería para pagos tanto para el envío como para la recepción del pago. A este esquema de comunicación se le conoce como \emph{request-reply}, esto porque la aplicación que inicia la petición se queda a la espera del resultado.
+
+Para realizar un pago, \emph{CloudStore} enviará un mensaje a una cola de pagos, en la figura \ref{fig:cloudstore-jms} se identifica como ``Payment Queue''. La aplicación consumidora de mensajes, estará monitoreando esta cola constantemente con el fin de tomar los mensajes y procesarlos contra el \emph{gateway} de pagos. Una vez que el pago se haya efectuado, la aplicación consumidora envía el resultado del pago a otra cola identificada en la figura \ref{fig:cloudstore-jms} como ``Payment Status Queue''. \emph{CloudStore} estará monitoreando los mensajes provenientes de esta cola con el fin de conocer el estado del pago.
+
+\subsubsection{Aplicación original \emph{vs.} Aplicación modificada}
+Para la adaptación de \emph{CloudStore}, se tomó del repositorio de código de este proyecto que se encuentra en \url{https://github.com/CloudScale-Project/CloudStore} y se copió a un nuevo repositorio: \url{https://github.com/tema-selecto-investigacion/cloudstore-boot}. Esto se hizo con el fin de tener mayor control y visibilidad sobre los cambios hechos. En la figura \ref{fig:github-cloudstore-1} se muestra el repositorio creado para \emph{CloudStore}.
+
+Seguidamente, se siguieron las instrucciones para su puesta en ejecución: instalación dependencias de código necesarias y creación de \emph{scripts} para crear la base de datos y agregar registros a la misma. Una vez que la aplicación se construyó y se configuró para que trabajara junto con una base de datos MySQL local, la misma se pudo ejecutar en el puerto \texttt{:8080}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15cm]{github-cloudstore-1}
+  \caption{\small{Repositorio de código para CloudStore en GitHub}}
+  \label{fig:github-cloudstore-1}
+\end{figure}
+
+Luego de ejecutar la aplicación localmente y probar que funcione adecuadamente, se procedió a crear un ambiente de producción en Amazon AWS. Para esto, se creó un ambiente con un servidor Apache Tomcat 8 y una base de datos MySQL utilizando los servicios de \emph{Elastic BeanStalk} y \emph{Relational Database Services}(RDS) respectivamente. A este ambiente se llamó \texttt{cloudstore-plain}. Se configuró la aplicación para que cuando fuera instalada en este ambiente se conectara a la base de datos en AWS.
+
+Cuando ambas, la aplicación local y la instalada en AWS pudieron ser ejecutarse satisfactoriamente, se empezó con la adaptación de \emph{CloudStore}. Lo primero fue instalar e iniciar una instancia de ActiveMQ localmente. En su configuración por defecto, ActiveMQ se ejecuta en el puerto \texttt{:61616} y su aplicación Web de administración en el puerto \texttt{:8161}. Se crearon dos colas de mensajes: \texttt{payment-queue}, en donde se enviarán los mensajes(peticiones) de pago y \texttt{payment-status-queue}, en donde se enviarán los mensajes del estado del pago.  Luego se hizo un nuevo \emph{branch} (rama) en el repositorio de código para los nuevos cambios que se iban a realizar. Este \emph{branch} lleva por nombre \texttt{jms}. Se instaló la dependencia \texttt{javax.jms 1.1} para que la aplicación pudiera comunicarse por medio del estándar \emph{Java Messaging Service}. Se cambió el flujo de trabajo de \emph{CloudStore} para que en lugar de llamar al \emph{gateway} de pago de manera \emph{ad hoc}, se creará un mensaje con la información de la compra para luego enviar este a la cola de mensajes \texttt{payment-queue}. Por último, se agregará código para monitorear y consumir el resultado del pago, el cual debería de ser entregado por la cola \texttt{payment-status-queue}. A este estilo de comunicación se le conoce como \emph{request-reply}: la parte que envia la comunicación debe de aportar algún tipo de encabezado y/o meta-dato al mensaje para su posterior identificación. Luego de enviar el mensaje, la aplicación se pone en modo de monitoreo para filtrar y procesar solamente aquellos mensajes que fueron generados por esta. 
+
+Se creó un nuevo proyecto en Java llamado \texttt{jms-receiver}, cuyo repositorio de código se encuentra en \url{https://github.com/tema-selecto-investigacion/jms-receiver} (Figura \ref{fig:github-jms-receiver}). Este nuevo proyecto va a llevar a cabo las siguientes actividades: monitoreo y consumo constante de mensajes de la cola \texttt{payment-queue}, realizar una llamada al \emph{gateway} de pagos, obtener el resultado del pago y enviarlo por la cola \texttt{payment-status-queue}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15cm]{github-jms-receiver}
+  \caption{\small{Repositorio de código para el proyecto \texttt{JMS-Receiver} en GitHub}}
+  \label{fig:github-jms-receiver}
+\end{figure}
+
+Primero se probaron los cambios localmente y se pudo comprobar como ahora los mensajes con las peticiones de pagos viajaban a través de las colas de mensajería en lugar de ser generadas a lo interno de \emph{CloudStore}.
+
+Para poner estos nuevos cambios en un ambiente de producción se realizaron las siguientes actividades:
+\begin{itemize}
+    \item Se creó un nuevo ambiente en \emph{Elastic BeanStalk} llamado \texttt{cloudstore-jms}
+    \begin{itemize}
+        \item En este nuevo ambiente se va a instalar la aplicación de \emph{CloudStore} modificada que vive en el \emph{branch} \texttt{jms}.
+    \end{itemize}
+
+    \item Se provisionó una nueva máquina virtual en el servicio \emph{Amazon Elastic Compute Cloud} (EC2). Una máquina virtual con Ubuntu 16.04, Java y ActiveMQ
+    \begin{itemize}
+        \item En esta máquina virtual se va a ejecutar la aplicación \texttt{jms-receiver} y el servicio de ActiveMQ con las colas de \texttt{payment-service} y \texttt{paymente-status-queue}
+    \end{itemize}
+    \item Se configuró la versión de \emph{CloudStore} modificada para que se comunicara con las colas de mensajería que se encuentran en la nueva máquina virtual provisionada
+\end{itemize}
+
+Se puede comparar los cambios hechos a la versión original de \emph{CloudStore} en el siguiente \emph{Pull Request}: \url{https://github.com/tema-selecto-investigacion/cloudstore-boot/pull/1}.  
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15cm]{github-cloudstore-pr}
+  \caption{\small{Diferencias entre el código original de \emph{CloudStore} y el implementado}}
+  \label{fig:github-cloudstore-pr}
+\end{figure}
+
+En la figura \ref{fig:aws-elb} se pueden ver que los dos ambientes de \emph{CloudStore} se fueron puestos en producción de forma satisfactoria.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=17cm]{aws-elb}
+  \caption{\small{Los dos ambientes de \emph{CloudStore} en AWS}}
+  \label{fig:aws-elb}
+\end{figure}
+
+A continuación se presentan las dos versiones de \emph{CloudStore} ejecutándose en un ambiente de producción. En la figura \ref{fig:aws-cs-plain} se muestra la versión original y el la figura \ref{fig:aws-cs-jms} la versión modificada. Ambas aplicaciones lucen similar, pero apuntan a dominios diferentes y también difieren en la forma en la que se realiza el proceso de pago\footnote{Ambas aplicaciones podrían permanecer no disponibles durante ciertos periódos con el fin de no incurrir en costos innecesarios. En caso de querer probar la aplicación y este no se encuentre disponible, se puede poner en contacto con el autor para su puesta en ejecución.}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=14cm]{aws-cs-plain}
+  \caption{\small{Versión original de \emph{CloudStore} (\emph{plain}) en AWS}}
+  \label{fig:aws-cs-plain}
+\end{figure}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=14cm]{aws-cs-jms}
+  \caption{\small{Versión de \emph{CloudStore} adaptada para MOM en AWS}}
+  \label{fig:aws-cs-jms}
+\end{figure}
+
+
+\section{Mediciones de rendimiento iniciales} \label{ch:mediciones-iniciales}
+Para realizar mediciones de rendimiento, los autores de \emph{CloudStore} crearon una herramienta de pruebas de carga basada en Apache JMeter\footnote{\url{https://jmeter.apache.org}} a la cual llamaron \emph{Distributed JMeter}. Esta herramienta se usa para crear cargas de trabajo las cual simulan múltiples usuarios realizando peticiones a un servidor Web el cual esté ejecutando \emph{CloudStore}. \emph{Distributed JMeter} se ejecuta en un entorno Linux en EC2 en AWS. Envía solicitudes \texttt{HTTP} a servicio de balanceo de carga \emph{Elastic Load Balancer}. JMeter registra los datos de todas las solicitudes y respuestas \texttt{HTTP}, lo que permite la medición de las característias del sistema tal y cómo el número de solicitudes que son exitosas, caducan o fallan. \emph{Distributed JMeter} se encuentra disponible en \url{https://github.com/CloudScale-Project/Distributed-Jmeter}. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm]{cloudstore-deployment}
+  \caption{\small{Instalación de \emph{CloudStore} en AWS}}
+  \label{fig:cs-deploy}
+\end{figure}
+
+En la figura \ref{fig:cs-deploy} se muestra la instalación de \emph{CloudStore} junto con el generador de pruebas de carga \emph{Distributed JMeter}, los componentes funcionales de \emph{CloudStore} (servidor Web, base de Datos, servidor de imágenes y \emph{gateway} de pagos) instalados en la platforma AWS.
+\begin{itemize}
+    \item El \emph{Elastic load balancer} es parte de AWS y es utilizado para distribuir tráfico entrante a la aplicación a través de múltiples instancias EC2. En la instalación de ambas versiones de \emph{CloudStore}, el servicio de balanceo se configura a través de \emph{Elastic BeanStalk}.
+    \item Un servidor Web instalado en varias instancias EC2 que se ejecuta bajo un sistema operativo Linux y que consiste de dos componentes:
+    \begin{enumerate}
+        \item Un proxy Web basado en Nginx que reenvía peticiones \texttt{HTTP} a la aplicación de \emph{CloudStore}
+        \item La aplicación de \emph{CloudStore}
+    \end{enumerate}
+    \item Un servidor de base datos que se proporciona a través de RDS y que ejecuta una base de datos MySQL.
+    \item Para ambas versiones de \emph{CloudStore} se prescindió del servidor de imágenes que se propone en la instalación original de la figura \ref{fig:cs-deploy}. En su lugar, se modificó \emph{CloudStore} para que cada vez que se necesitara entregar una imagen, se entregara una por defecto
+    \item Un \emph{gateway} de pagos, un generador simple de tiempos de respuesta que se introducido en lugar de un servicio de pagos externo. Con el fin de imitar un servicio real independiente a \emph{CloudStore}, el generador de tiempos de respuesta introduce un retraso definido a partir de una distribución estadística. El generador de tiempos de respuesta se instaló en una plataforma Heroku, la cual es completamente independiente a AWS. El repositorio de código para el generador de tiempos de respuesta se encuentra disponible en \url{https://github.com/CloudScale-Project/Response-Generator}
+\end{itemize}
+  
+
+\subsection{Generación de cargas de trabajo con JMeter}
+En \emph{Distributed JMeter} se ponen a disposición varias pruebas de carga para evaluar principalmente las características de escalabilidad de la aplicación (recordar que la aplicación \emph{CloudStore} fue creada validar los modelos y metodología de \emph{CloudScale}). Estas pruebas estan basadas en escenarios en donde miles de usuarios están accediendo de forma aleatoria a las diferentes páginas Web que componen \emph{CloudStore} por un tiempos de 10 - 15 minutos. A partir de esto, los autores esperan experimentar cambios el comportamiento de la aplicación debido al crecimiento/disminución en las instancias en donde se ejecuta.
+
+Con el fin de explorar las características de \emph{CloudStore} y del impacto de agregar comunicación basada en mensajes para el procesamiento de pagos, se toma como referencia el escenario de prueba llamado \texttt{cloudscale-max} que se pone a disposición en \emph{Distributed JMeter}, en donde se simulan 2000 usuarios realizando peticiones a las páginas Web de \emph{CloudScale} durante 15 minutos de acuerdo a una distribución de probabilidades proporcionada dentro de la prueba. Se toma esta prueba como base y se modifica para utilizar 100 usuarios en lugar de 2000 y la duración de la se cambió a 2 - 3 minutos (La duración se cambió a 2 minutos, pero por lo general los hilos -\emph{threads} - de JMeter tienden a no finalizar luego del tiempo especificado). La intención detrás de esta modificación es la de explorar el comportamiento de \emph{CloudStore} a una escala la cual permita dar mejor seguimiento a las acciones que se dan a lo interno de la aplicación y de esta forma lograr tener un mejor entendimiento de la misma. También se busca, al contrario de los autores de \emph{CloudStore} no introducir cargas de trabajo que pudieran hacer que el ambiente de AWS cambiara porque esto podría impactar con los resultados de los tiempos de respuesta. 
+
+\subsection{Pruebas sobre versión original de \emph{CloudStore}}
+En la figura \ref{fig:jmeter-1} muestra JMeter configurado con la prueba \texttt{cloudscale-max}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm]{jmeter-1}
+  \caption{\small{JMeter con la prueba \texttt{cloudscale-max}}}
+  \label{fig:jmeter-1}
+\end{figure}
+
+Luego de ejecutar la prueba se pudo obtener los tiempos de respuesta sobre las páginas que componen la versión original de \emph{CloudStore}. En esta investigación se está particularmente interesado en la página(recurso Web) llamado \texttt{/payment} ya que es en este en donde se ejecut la lógica del pago, en dónde se realiza la conexión con el \emph{gateway} de pagos. En la figura \ref{fig:cs-plain-1} se muestran los resultados obtenidos. La línea de color fucsia es la que representa los tiempos de respuesta que experimentaron las solicitudes a \texttt{/payment}. Los resultados para \texttt{/payment} se pueden ver con mayor detalle en la figura \ref{fig:cs-plain-2}. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15cm]{response-over-time-local-to-prod-1-plain}
+  \caption{\small{Tiempos de respuesta de las páginas de la versión original \emph{CloudStore} (cloudstore-plain)}}
+  \label{fig:cs-plain-1}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15cm]{response-over-time-local-to-prod-1-plain-payment}
+  \caption{\small{Tiempos de respuesta de \texttt{/payment} en la versión original de \emph{CloudStore}}}
+  \label{fig:cs-plain-2}
+\end{figure}
+
+En promedio, las páginas Web de \emph{CloudStore} tomaron 30 segundos en ser servidas. La página de inicio, \texttt{/home}, representada en la línea roja de la figura \ref{fig:cs-plain-1} muestra un crecimiento sostenido desde el inicio hasta el fin de la prueba. La página de inicio realiza varios llamados a la base de datos con el fin de mostrar productos e información de la tienda, por lo que para esta página, la base de datos podría resultar el cuello de botella.
+
+Con respecto a \texttt{/payment} (figura \ref{fig:cs-plain-2}), se obtuvieron tiempos de respuesta de 5 segundos en promedio. En la programación detrás de \texttt{/payment} solamente se lleva a cabo la invocación y conexión con el \emph{gateway} de pagos. En los resultados para \texttt{/payment} también se obtuvieron varios respuestas con código \texttt{503 - Service Unavailable}, lo que indica que en un ambiente de producción real, varias solicitudes de pago no pudieron ser atendidas debido a que el servidor Web o bien el \emph{gateway} de pagos no fueron capaces de procesar la solicitud.
+
+Esta prueba se ejecutó desde la computadora personal del autor de esta investigación. Cabe mencionar de que cuando se ejecutó la misma prueba desde una máquina virtual en EC2 los tiempos de respuesta que se obtuvieron fueron alrededor de 40\% más rápido, las tendencias en cuanto al comportamiento de la aplicación se mantuvo similar.
+
+\subsection{Pruebas sobre versión modificada de \emph{CloudStore}}
+Se tomó la misma prueba, \texttt{cloudscale-max}, como referencia para esta prueba. Solamente se cambió el \emph{host} al cual apuntaba anteriormente para que realizara las pruebas sobre la versión modificada de \emph{CloudStore}.
+
+Para la versión modificada de \emph{CloudStore} (figura \ref{fig:cs-jms-1}), el tiempo promedio de respuesta de una página es de 31 segundos. Se puede notar que el comportamiento de la aplicación se mantiene similar aunque sí se experimentan cambios sobre \texttt{/payment}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15cm]{response-over-time-local-to-prod-1}
+  \caption{\small{Tiempos de respuesta de las páginas de la versión modificada \emph{CloudStore} (cloudstore-jms)}}
+  \label{fig:cs-jms-1}
+\end{figure}
+
+En la figura \ref{fig:cs-jms-2} se muestra el detalle de los tiempos de respuesta obtenidos en \texttt{/payment}. El tiempo de respuesta promedio de esta versión es de 35 segundos y mantuvo un crecimiento sostenido desde el inicio hasta el fin de la prueba. Este comportamiento es congruente con el comportamiento de la cola de mensajes: las solicitudes que tomaron menor tiempo fueron las que entraron de primero en la cola, las que duraron más fueron las que llegaron de último y por lo tanto fueron procesadas al final. Un dato interesante a tomar en cuenta es que en la versión modificada de \emph{CloudStore} el 100\% de las solitudes a \texttt{/payment} fueron exitosas, a diferencia de la versión original en donde se obtuvieron varias respuestas con código \texttt{503 - Service Unavailable}, principalmente hacia el final de la prueba. Esto sugiere que existen ocasiones en que el \emph{gateway} de pagos (el servicio generador de tiempos de respuesta) no puede manejar tantas solicitudes al mismo tiempo pero que cuando estas solicitudes se manejan por medio de comunicación basada en mensajes, cada solicitud de pago es servida adecuadamente. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15cm]{response-over-time-local-to-prod-1-payment}
+  \caption{\small{Tiempos de respuesta de \texttt{/payment} en la versión modificada de \emph{CloudStore}}}
+  \label{fig:cs-jms-2}
+\end{figure}
+
+En la prueba sobre la versión modificada de \emph{CloudStore}, solamente se puso a disposición un consumidor de mensajes, es decir, solamente una instancia de \texttt{jms-receiver} fue ejecutada. Cuando se ejecutaron varias instancias de \texttt{jms-receiver} al mismo tiempo, se experimentaron tiempos de respuesta más bajos. Cuando se probaron hasta 5 instancias al mismo tiempo, el tiempo bajó casi 50\%, y todas las solicitudes fueron exitosas. En la configuración original de \emph{CloudStore} este tipo de problemas se hubiera resulto por medio de la puesta en producción de más instancias.
+
+El proyecto \emph{CloudScale} (del cual proviene \emph{CloudStore}) tiene su énfasis en modelado y rendimiento de escalabilidad, por lo que muchas de las pruebas que se incluyen en \emph{Distributed JMeter} están destinadas a estresar la infraestructuras para que estan puedan crecer y nuevas instancias de máquinas virtuales o bases de datos sean creadas. Luego de estas pruebas iniciales se considera que en \emph{CloudScale} también puede existir la oportunidad de evaluar el efecto que tiene en la escalabilidad el uso de comunicación basada en mensajes.
+
+\subsection{Mediciones sobre máquina virtual que ejecuta ActiveMQ}
+En la figura \ref{fig:aws-activemq-metrics} se muestran las métricas del uso del CPU y disco duro de la máquina virtual que estaba ejecutando ActiveMQ y el consumidor de mensajes (\texttt{jms-receiver}).
+
+Durante la ejecución de la prueba de la sección anterior, la máquina virtual no experimentó operaciones de lectura/escritura en disco. Las colas de mensajes \texttt{payment-queue} y \texttt{payment-status-queue} no están configuradas para persistir datos y además \emph{CloudStore} delega almacenamiento y lectura de datos a la base de datos MySQL. En cuanto al uso del CPU, la máquina virtual experimentó un incremento de 0.5\% del uso del CPU durante la ejecución de la prueba. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=18cm]{aws-activemq-metrics}
+  \caption{\small{Métricas del rendimiento de la máquina virtual que ejecuta ActiveMQ en EC2}}
+  \label{fig:aws-activemq-metrics}
+\end{figure}
+
+\section{Trabajo Futuro}
+Las mediciones que se presentan en este informe se hicieron con el fin de empezar a probar y conocer cómo se comporta la aplicación de referencia. En las próximas semanas se pretende seguir experimentando con estas y otras mediciones con el fin de identificar características relevantes que puedan servir de entrada para el modelo de la aplicación y su posterior simulación.
+
+Tal y como se mencionó en la sección \ref{ch:aplicacion-referencia}, una de las principales características por la cual se escogió \emph{CloudStore} como aplicación de referencia, es porque para esta aplicación ya se cuenta con un modelo basado en Palladio. Este modelo fue realizado por los autores de \emph{CloudStore} y se encuentra en el repositorio de código del mismo en GitHub. En este modelo se incluyen experimentos, los cuales son pruebas de carga que el \emph{Palladio Workbench} utiliza para simular el uso que le podrían dar los usuarios. 
+
+Para las próximas semanas, se pretende empezar a trabajar con el \emph{Palladio Workbench} y el modelo de \emph{CloudStore}. Ejecutar experimentos/pruebas y evaluar resultados. Luego se agregarán nuevos componentes a este modelo: estos componentes serán los que representen el \emph{middleware} orientado a mensajes y la aplicación consumidora de mensajes. En esta parte, artículos que se han recopilado sobre el tema y las mediciones hechas servirán como entrada para modelar estos componentes.
+
+Por último, se ejecutarán simulaciones sobre el modelo modificado y se compararán las métricas obtenidas con las que se han obtenido cuando se utilizó JMeter para probar \emph{CloudStore}. En este punto intentará saber si el modelo propuesto es uno que puede describir bien el comportamiento de esta aplicación.
+
+\chapter{Propuesta de contenidos de informe final} \label{ch:propuesta-informe}
+Los siguientes son los contenidos que se proponen para el informe final:
+\begin{enumerate}
+    \item Resumen (\emph{Abstract})
+    \item Introducción: generalidades de los temas que se van a cubrir así como de la estructura del artículo
+    \item Ingeniería de rendimiento de software:
+    \begin{enumerate}
+        \item Ingeniería de rendimiento a través de modelado
+        \item Modelado de Arquitecturas de Software con el \emph{Palladio Component Model} (PCM)
+    \end{enumerate}
+    \item \emph{Middleware} Orientado a Mensajes: resumen de sección \ref{sec:mom}
+    \item Modelado de rendimiento en una aplicación: \emph{CloudStore}
+    \begin{enumerate}
+        \item Generalidades de \emph{CloudStore}
+        \item \emph{CloudStore} con \emph{middleware} orientado a mensajes
+        \item Modelado de \emph{middleware} orientado a mensajes en \emph{CloudStore}
+    \end{enumerate}
+    \item Resultados: dar a conocer los resultados de las simulaciones sobre el modelo de \emph{CloudStore} y si los mismos logran predecir de alguna forma el comportamiento de la aplicación
+    \item Trabajos Relacionados
+    \item Conclusión
+    \item Bibliografía
+\end{enumerate}
 
 
 
@@ -688,6 +1039,8 @@ DOI: \href{https://ezproxy.itcr.ac.cr:2878/10.1109/WICSA-ECSA.212.11}{10.1109/WI
 \bibitem{spe-ed} Connie U Smith and Lloyd G Williams. \emph{Performance solutions: a practical guide to creating responsive, scalable software}. Addison Wesley Longman Publishing Co., Inc., Redwood City, CA, USA, 2002.
 
 \bibitem{woodside-et-al-2} Murray Woodside, Dorin Petriu, and Khalid Siddiqui. \emph{Performance-related Completions for Software Specifications}. In Proceedings of the 24th International Conference on Software Engineering, pages 22–32, New York, NY, USA, 2002.
+
+\bibitem{cloudscale-2} Sebastian Lehrig and Richard Sanders and Gunnar Brataas and Mariano Cecowski and Simon Ivanšek and Jure Polutnik. \emph{CloudStore — towards scalability, elasticity, and efficiency benchmarking and analysis in Cloud computing}. Future Generation Computer Systems, Vol 38, pages 115 - 126. 2018. DOI: \url{https://doi.org/10.1016/j.future.2017.04.018} 
 
 \end{thebibliography}
 
